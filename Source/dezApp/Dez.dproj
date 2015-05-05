@@ -1,0 +1,1653 @@
+﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup>
+			<ProjectGuid>{54FC0589-DC90-4C52-AC4F-09E720F981D9}</ProjectGuid>
+			<MainSource>Dez.dpr</MainSource>
+			<Base>True</Base>
+			<Config Condition="'$(Config)'==''">Release</Config>
+			<TargetedPlatforms>1</TargetedPlatforms>
+			<AppType>Application</AppType>
+			<FrameworkType>VCL</FrameworkType>
+			<ProjectVersion>13.4</ProjectVersion>
+			<Platform Condition="'$(Platform)'==''">Win32</Platform>
+			<Profile Condition="'$(Platform)'=='Win32'">dez</Profile>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="('$(Platform)'=='Win64' and '$(Base)'=='true') or '$(Base_Win64)'!=''">
+			<Base_Win64>true</Base_Win64>
+			<CfgParent>Base</CfgParent>
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Base)'=='true') or '$(Base_Win32)'!=''">
+			<Base_Win32>true</Base_Win32>
+			<CfgParent>Base</CfgParent>
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Release' or '$(Cfg_1)'!=''">
+			<Cfg_1>true</Cfg_1>
+			<CfgParent>Base</CfgParent>
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Cfg_1)'=='true') or '$(Cfg_1_Win32)'!=''">
+			<Cfg_1_Win32>true</Cfg_1_Win32>
+			<CfgParent>Cfg_1</CfgParent>
+			<Cfg_1>true</Cfg_1>
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Debug' or '$(Cfg_2)'!=''">
+			<Cfg_2>true</Cfg_2>
+			<CfgParent>Base</CfgParent>
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Cfg_2)'=='true') or '$(Cfg_2_Win32)'!=''">
+			<Cfg_2_Win32>true</Cfg_2_Win32>
+			<CfgParent>Cfg_2</CfgParent>
+			<Cfg_2>true</Cfg_2>
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Base)'!=''">
+			<VerInfo_Locale>1049</VerInfo_Locale>
+			<DCC_S>false</DCC_S>
+			<DCC_K>false</DCC_K>
+			<DCC_F>false</DCC_F>
+			<DCC_ImageBase>00400000</DCC_ImageBase>
+			<DCC_E>false</DCC_E>
+			<DCC_N>false</DCC_N>
+			<DCC_Namespace>Vcl;Vcl.Imaging;Vcl.Touch;Vcl.Samples;Vcl.Shell;System;Xml;Data;Datasnap;Web;Soap;Winapi;System.Win;$(DCC_Namespace)</DCC_Namespace>
+			<VerInfo_Keys>CompanyName=;FileDescription=;FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Base_Win64)'!=''">
+			<Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
+			<Icon_MainIcon>Dez_Icon5.ico</Icon_MainIcon>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Base_Win32)'!=''">
+			<Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
+			<VerInfo_Locale>1033</VerInfo_Locale>
+			<VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+			<Icon_MainIcon>Dez_Icon5.ico</Icon_MainIcon>
+			<VerInfo_Keys>CompanyName=;FileDescription=;FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
+			<DCC_Namespace>Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;Bde;$(DCC_Namespace)</DCC_Namespace>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Cfg_1)'!=''">
+			<DCC_SymbolReferenceInfo>0</DCC_SymbolReferenceInfo>
+			<DCC_DebugInformation>false</DCC_DebugInformation>
+			<DCC_Define>RELEASE;$(DCC_Define)</DCC_Define>
+			<DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
+			<VerInfo_Debug>true</VerInfo_Debug>
+			<VerInfo_AutoGenVersion>true</VerInfo_AutoGenVersion>
+			<DCC_ExeOutput>..\..\Bin\</DCC_ExeOutput>
+			<DCC_DcuOutput>..\DCU</DCC_DcuOutput>
+			<VerInfo_Build>3</VerInfo_Build>
+			<VerInfo_PreRelease>true</VerInfo_PreRelease>
+			<VerInfo_Keys>CompanyName=;FileDescription=;FileVersion=1.0.1.3;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
+			<VerInfo_Release>1</VerInfo_Release>
+			<VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+			<VerInfo_Locale>1033</VerInfo_Locale>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Cfg_2)'!=''">
+			<DCC_GenerateStackFrames>true</DCC_GenerateStackFrames>
+			<DCC_Define>DEBUG;$(DCC_Define)</DCC_Define>
+			<DCC_Optimize>false</DCC_Optimize>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
+			<VerInfo_Locale>1033</VerInfo_Locale>
+			<DCC_UsePackage>Entity;rtl;dbrtl;aurelius;$(DCC_UsePackage)</DCC_UsePackage>
+			<DCC_MapFile>3</DCC_MapFile>
+			<Manifest_File>None</Manifest_File>
+			<VerInfo_Build>1</VerInfo_Build>
+			<VerInfo_Keys>CompanyName=;FileDescription=;FileVersion=1.1.0.1;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.1.0.3;Comments=</VerInfo_Keys>
+			<VerInfo_Debug>true</VerInfo_Debug>
+			<VerInfo_MinorVer>1</VerInfo_MinorVer>
+			<VerInfo_AutoGenVersion>true</VerInfo_AutoGenVersion>
+			<Debugger_RunParams>noupdate</Debugger_RunParams>
+			<DCC_ExeOutput>..\..\Bin\</DCC_ExeOutput>
+			<VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+			<DCC_DcuOutput>..\DCU</DCC_DcuOutput>
+		</PropertyGroup>
+		<ItemGroup>
+			<DelphiCompile Include="$(MainSource)">
+				<MainSource>MainSource</MainSource>
+			</DelphiCompile>
+			<DCCReference Include="MainFrm.pas">
+				<Form>MainForm</Form>
+			</DCCReference>
+			<DCCReference Include="AccFrm.pas">
+				<Form>AccForm</Form>
+			</DCCReference>
+			<DCCReference Include="common\AppUtils.pas"/>
+			<DCCReference Include="common\LofinFrm.pas"/>
+			<DCCReference Include="common\UpdateA.pas"/>
+			<DCCReference Include="common\UpgradeFrm.pas">
+				<Form>UpgradeForm</Form>
+			</DCCReference>
+			<DCCReference Include="..\CoolLib\common\AppTerminateFrm.pas">
+				<Form>AppTerminateForm</Form>
+			</DCCReference>
+			<DCCReference Include="..\CoolLib\common\cmInfoBoxFrm.pas">
+				<Form>cmInfoBoxForm</Form>
+			</DCCReference>
+			<DCCReference Include="..\CoolLib\common\cmMessageBoxFrm.pas">
+				<Form>cmMessageBoxForm</Form>
+			</DCCReference>
+			<DCCReference Include="..\CoolLib\common\cmUtils.pas"/>
+			<DCCReference Include="..\CoolLib\db\cmDBUnit.pas">
+				<Form>cmDb</Form>
+				<DesignClass>TDataModule</DesignClass>
+			</DCCReference>
+			<DCCReference Include="..\CoolLib\db\cmTables.pas"/>
+			<DCCReference Include="NameFrm.pas">
+				<Form>NameForm</Form>
+			</DCCReference>
+			<DCCReference Include="SrvSaveListFrm.pas">
+				<Form>SrvSaveListForm</Form>
+			</DCCReference>
+			<DCCReference Include="PrincipalFrm.pas">
+				<Form>PrincipalForm</Form>
+			</DCCReference>
+			<DCCReference Include="LoadData\AccCodeData.pas"/>
+			<DCCReference Include="BudgetFrm.pas">
+				<Form>BudgetForm</Form>
+			</DCCReference>
+			<DCCReference Include="HouseFrm.pas">
+				<Form>HouseForm</Form>
+			</DCCReference>
+			<DCCReference Include="common\SQLList.pas"/>
+			<DCCReference Include="LoadData\PlanShablon.pas"/>
+			<DCCReference Include="PlanFrm.pas">
+				<Form>PlanForm</Form>
+			</DCCReference>
+			<DCCReference Include="GlVarsFrm.pas">
+				<Form>GlVarsForm</Form>
+			</DCCReference>
+			<DCCReference Include="EditFrm.pas">
+				<Form>EditForm</Form>
+			</DCCReference>
+			<DCCReference Include="KontragentFrm.pas">
+				<Form>KontragentForm</Form>
+			</DCCReference>
+			<DCCReference Include="IspFrm.pas">
+				<Form>IspForm</Form>
+			</DCCReference>
+			<DCCReference Include="PeopleFrm.pas">
+				<Form>PeopleForm</Form>
+			</DCCReference>
+			<DCCReference Include="WorkerFrm.pas">
+				<Form>WorkerForm</Form>
+			</DCCReference>
+			<DCCReference Include="FBUserFrm.pas">
+				<Form>FBUserForm</Form>
+			</DCCReference>
+			<DCCReference Include="SrvDogFrm.pas">
+				<Form>SrvDogForm</Form>
+			</DCCReference>
+			<DCCReference Include="ShowHouseFrm.pas">
+				<Form>ShowHouseForm</Form>
+			</DCCReference>
+			<DCCReference Include="StructDefectFrm.pas">
+				<Form>StructDefectForm</Form>
+			</DCCReference>
+			<DCCReference Include="ShowStructFrm.pas">
+				<Form>ShowStructForm</Form>
+			</DCCReference>
+			<DCCReference Include="ShowResultFrm.pas">
+				<Form>ShowResultForm</Form>
+			</DCCReference>
+			<DCCReference Include="AddMatFrm.pas">
+				<Form>AddMatForm</Form>
+			</DCCReference>
+			<DCCReference Include="ShHouseGetFrm.pas">
+				<Form>ShHouseGetForm</Form>
+			</DCCReference>
+			<DCCReference Include="AnalFrm.pas">
+				<Form>AnalForm</Form>
+			</DCCReference>
+			<DCCReference Include="common\LoadingSplash.pas">
+				<Form>frmLoading</Form>
+			</DCCReference>
+			<DCCReference Include="BgRepFrm.pas">
+				<Form>BgRepForm</Form>
+			</DCCReference>
+			<DCCReference Include="BgRepFrm1.pas">
+				<Form>BgRepForm1</Form>
+			</DCCReference>
+			<DCCReference Include="OutPlanFrm.pas">
+				<Form>OutPlanForm</Form>
+			</DCCReference>
+			<DCCReference Include="RightsFrm.pas">
+				<Form>RightsForm</Form>
+			</DCCReference>
+			<DCCReference Include="dezCommon.pas"/>
+			<DCCReference Include="KategoryRightFrm.pas">
+				<Form>KategoryRightForm</Form>
+			</DCCReference>
+			<DCCReference Include="events\dezEvent1Frm.pas">
+				<Form>dezEvent1Form</Form>
+			</DCCReference>
+			<DCCReference Include="events\EventsFrm.pas">
+				<Form>EventsForm</Form>
+			</DCCReference>
+			<DCCReference Include="events\Ev2Frm.pas">
+				<Form>Ev2Form</Form>
+			</DCCReference>
+			<DCCReference Include="events\Ev3Frm.pas">
+				<Form>Ev3Form</Form>
+			</DCCReference>
+			<DCCReference Include="events\Ev4Frm.pas">
+				<Form>Ev4Form</Form>
+			</DCCReference>
+			<DCCReference Include="events\Ev5Frm.pas">
+				<Form>Ev5Form</Form>
+			</DCCReference>
+			<DCCReference Include="events\SelectEventFrm.pas">
+				<Form>SelectEventForm</Form>
+			</DCCReference>
+			<DCCReference Include="common\KAZip.pas"/>
+			<DCCReference Include="events\Ev5AnswerFrm.pas">
+				<Form>Ev5AnswerForm</Form>
+			</DCCReference>
+			<DCCReference Include="TRLFinPlanEditFrm.pas">
+				<Form>TRLFinPlanEditForm</Form>
+			</DCCReference>
+			<DCCReference Include="TRLFinPlanFrm.pas">
+				<Form>TRLFinPlanForm</Form>
+			</DCCReference>
+			<DCCReference Include="common\CommonDm.pas">
+				<Form>com_dm</Form>
+				<DesignClass>TDataModule</DesignClass>
+			</DCCReference>
+			<DCCReference Include="CurRemAddFrm.pas">
+				<Form>CurRemAddForm</Form>
+			</DCCReference>
+			<DCCReference Include="LPlanRepFrm.pas">
+				<Form>LPlanRepForm</Form>
+			</DCCReference>
+			<DCCReference Include="common\UpdScrFrm.pas">
+				<Form>UpdScrForm</Form>
+			</DCCReference>
+			<DCCReference Include="PlanFactFrm.pas">
+				<Form>PlanFactForm</Form>
+			</DCCReference>
+			<DCCReference Include="PlanRepYearFrm.pas">
+				<Form>PlanRepYearForm</Form>
+			</DCCReference>
+			<DCCReference Include="KServisWorkFrm.pas">
+				<Form>KServisWorkForm</Form>
+			</DCCReference>
+			<DCCReference Include="KServisMaterialFrm.pas">
+				<Form>KServisMaterialForm</Form>
+			</DCCReference>
+			<DCCReference Include="WorkListFrm.pas">
+				<Form>WorkListForm</Form>
+			</DCCReference>
+			<DCCReference Include="AddWorkSpecListFrm.pas">
+				<Form>AddWorkSpecListForm</Form>
+			</DCCReference>
+			<DCCReference Include="AddWorkSpesMatFrm.pas">
+				<Form>AddWorkSpesMatForm</Form>
+			</DCCReference>
+			<DCCReference Include="AddWorkFrm.pas">
+				<Form>AddWorkForm</Form>
+			</DCCReference>
+			<DCCReference Include="JWorkTypeFrm.pas">
+				<Form>JWorkTypeForm</Form>
+			</DCCReference>
+			<DCCReference Include="JWorkFrm.pas">
+				<Form>JWORKForm</Form>
+			</DCCReference>
+			<DCCReference Include="AddJWorkFrm.pas">
+				<Form>AddJWorkForm</Form>
+			</DCCReference>
+			<DCCReference Include="AkttoJurnalFrm.pas">
+				<Form>AkttoJurnalForm</Form>
+			</DCCReference>
+			<DCCReference Include="BaseForm.pas"/>
+			<DCCReference Include="HouseWorkFrm.pas">
+				<Form>HouseWorkForm</Form>
+			</DCCReference>
+			<DCCReference Include="AddHouseWorkFrm.pas">
+				<Form>AddHouseWorkForm</Form>
+			</DCCReference>
+			<DCCReference Include="KapRemOsmFrm.pas">
+				<Form>KapRemOsmForm</Form>
+			</DCCReference>
+			<DCCReference Include="PrintAktFrm.pas">
+				<Form>PrintAktForm</Form>
+			</DCCReference>
+			<DCCReference Include="GraphTOFrm.pas">
+				<Form>GraphTOForm</Form>
+			</DCCReference>
+			<DCCReference Include="LiftlistFrm.pas">
+				<Form>LiftlistForm</Form>
+			</DCCReference>
+			<DCCReference Include="AddLiftFrm.pas">
+				<Form>AddLiftForm</Form>
+			</DCCReference>
+			<DCCReference Include="ExWorkListFrm.pas">
+				<Form>ExWorkListForm</Form>
+			</DCCReference>
+			<DCCReference Include="common\ConstLst.pas"/>
+			<DCCReference Include="HousePlanFrm.pas">
+				<Form>HousePlanForm</Form>
+			</DCCReference>
+			<DCCReference Include="HouseYearFrm.pas">
+				<Form>HouseYearForm</Form>
+			</DCCReference>
+			<DCCReference Include="HouseTarifFrm.pas">
+				<Form>HouseTarifForm</Form>
+			</DCCReference>
+			<DCCReference Include="LoadDataFrm.pas">
+				<Form>LoadDataForm</Form>
+			</DCCReference>
+			<DCCReference Include="..\CoolLib\common\dezLoadData.pas"/>
+			<DCCReference Include="..\CoolLib\db\cmLoadDataSet.pas"/>
+			<DCCReference Include="HouseRecvFrm.pas">
+				<Form>HouseRecvForm</Form>
+			</DCCReference>
+			<DCCReference Include="HousePrvFrm.pas">
+				<Form>HousePrvForm</Form>
+			</DCCReference>
+			<DCCReference Include="TarifUKFrm.pas">
+				<Form>TarifUKForm</Form>
+			</DCCReference>
+			<DCCReference Include="HouseLiftTarifFrm.pas">
+				<Form>HouseLiftTarifForm</Form>
+			</DCCReference>
+			<DCCReference Include="HouseLiftGrFrm.pas">
+				<Form>HouseLiftGrForm</Form>
+			</DCCReference>
+			<DCCReference Include="Plan1_Frm.pas">
+				<Form>BDR1Form</Form>
+			</DCCReference>
+			<DCCReference Include="BDR2Frm.pas">
+				<Form>BDR2Form</Form>
+			</DCCReference>
+			<DCCReference Include="BDR3Frm.pas">
+				<Form>BDR3Form</Form>
+			</DCCReference>
+			<DCCReference Include="HouseNGFrm.pas">
+				<Form>HouseNGForm</Form>
+			</DCCReference>
+			<DCCReference Include="HouseDogFrm.pas">
+				<Form>HouseDogForm</Form>
+			</DCCReference>
+			<DCCReference Include="ShowPrikazFrm.pas">
+				<Form>ShowPrikaz</Form>
+			</DCCReference>
+			<DCCReference Include="ShowPrikazPOFrm.pas">
+				<Form>ShowPrikazPO</Form>
+			</DCCReference>
+			<DCCReference Include="SGFrm.pas">
+				<Form>SGForm</Form>
+			</DCCReference>
+			<DCCReference Include="GraphListFrm.pas">
+				<Form>GraphListForm</Form>
+			</DCCReference>
+			<DCCReference Include="ShowRep2Frm.pas">
+				<Form>ShowRep2Form</Form>
+			</DCCReference>
+			<DCCReference Include="ShowRep1Frm.pas">
+				<Form>ShowRep1Form</Form>
+			</DCCReference>
+			<DCCReference Include="MoveMatFrm.pas">
+				<Form>MoveMatForm</Form>
+			</DCCReference>
+			<DCCReference Include="MoveWorkFrm.pas">
+				<Form>MoveWorkForm</Form>
+			</DCCReference>
+			<DCCReference Include="HouseLiftRepFrm.pas">
+				<Form>HouseLiftRepForm</Form>
+			</DCCReference>
+			<DCCReference Include="FactBDR1Frm.pas">
+				<Form>FactBDR1Form</Form>
+			</DCCReference>
+			<DCCReference Include="FactBRD2Frm.pas">
+				<Form>FactBRD2Form</Form>
+			</DCCReference>
+			<DCCReference Include="FactBDR3Frm.pas">
+				<Form>FactBDR3Form</Form>
+			</DCCReference>
+			<DCCReference Include="ImBaseFrm.pas">
+				<Form>ImBaseForm</Form>
+			</DCCReference>
+			<DCCReference Include="imArendatorFrm.pas">
+				<Form>imArendatorForm</Form>
+			</DCCReference>
+			<DCCReference Include="imDogFrm.pas">
+				<Form>imDogForm</Form>
+			</DCCReference>
+			<DCCReference Include="ShowR2Frm.pas">
+				<Form>ShowR2Form</Form>
+			</DCCReference>
+			<DCCReference Include="BDR1FactDocFrm.pas">
+				<Form>BDR1FactDocForm</Form>
+			</DCCReference>
+			<DCCReference Include="imDatalFrm.pas">
+				<Form>imDatalForm</Form>
+			</DCCReference>
+			<DCCReference Include="BDRFactDocFrm.pas">
+				<Form>BDRFactDocForm</Form>
+			</DCCReference>
+			<DCCReference Include="ShtrafDocFrm.pas">
+				<Form>ShtrafDocForm</Form>
+			</DCCReference>
+			<DCCReference Include="RLiftDocFrm.pas">
+				<Form>RLiftDocForm</Form>
+			</DCCReference>
+			<DCCReference Include="RDocFrm.pas">
+				<Form>RDocForm</Form>
+			</DCCReference>
+			<DCCReference Include="ControlWorkListFrm.pas">
+				<Form>ControlWorkListForm</Form>
+			</DCCReference>
+			<DCCReference Include="GetDogFrm.pas">
+				<Form>GetDogForm</Form>
+			</DCCReference>
+			<DCCReference Include="LoadFrom1CFrm.pas">
+				<Form>LoadFrom1CForm</Form>
+			</DCCReference>
+			<DCCReference Include="ODSFactDocFrm.pas">
+				<Form>ODSFactDoc</Form>
+			</DCCReference>
+			<DCCReference Include="ODSDocFrm.pas">
+				<Form>ODSDocForm</Form>
+			</DCCReference>
+			<DCCReference Include="BkpDoc.pas"/>
+			<DCCReference Include="Bkp1Doc.pas"/>
+			<DCCReference Include="SmetaABSFrm.pas">
+				<Form>SmetaABSForm</Form>
+			</DCCReference>
+			<DCCReference Include="DostDocFrm.pas">
+				<Form>DostDocForm</Form>
+			</DCCReference>
+			<DCCReference Include="dezMakeBDR.pas"/>
+			<DCCReference Include="CompareBDRFrm.pas">
+				<Form>CompareBDRForm</Form>
+			</DCCReference>
+			<DCCReference Include="CorrectCostFrm.pas">
+				<Form>CorrectCostForm</Form>
+			</DCCReference>
+			<DCCReference Include="BDRDocListFrm.pas">
+				<Form>BDRDocListForm</Form>
+			</DCCReference>
+			<DCCReference Include="BDRAutoCreateFrm.pas">
+				<Form>BDRAutoCreateForm</Form>
+			</DCCReference>
+			<DCCReference Include="NotLiftSrvFrm.pas">
+				<Form>NotLiftSrv</Form>
+			</DCCReference>
+			<DCCReference Include="BdrUtils.pas"/>
+			<DCCReference Include="AutoCreateWorkFrm.pas">
+				<Form>AutoCreateWorkForm</Form>
+			</DCCReference>
+			<DCCReference Include="WorkAutoPrintFrm.pas">
+				<Form>WorkAutoPrintForm</Form>
+			</DCCReference>
+			<DCCReference Include="AddHouseFrm.pas">
+				<Form>AddHouseForm</Form>
+			</DCCReference>
+			<DCCReference Include="WorkOrderRep.pas"/>
+			<DCCReference Include="nmHouseFrm.pas">
+				<Form>nmHouseForm</Form>
+			</DCCReference>
+			<DCCReference Include="dezHouseReport.pas"/>
+			<DCCReference Include="RepUseFundsFrm.pas">
+				<Form>RepUseFundsForm</Form>
+			</DCCReference>
+			<DCCReference Include="nmSummaryFrm.pas">
+				<Form>nmSummaryForm</Form>
+			</DCCReference>
+			<DCCReference Include="MaterialUse.pas"/>
+			<DCCReference Include="common\dezInfo.pas"/>
+			<DCCReference Include="TRLProcess1Frm.pas">
+				<Form>TRLProcess1Form</Form>
+			</DCCReference>
+			<DCCReference Include="AddStreetFrm.pas">
+				<Form>AddStreetForm</Form>
+			</DCCReference>
+			<DCCReference Include="common\SplashFrm.pas">
+				<Form>SplashForm</Form>
+			</DCCReference>
+			<DCCReference Include="TRLProcess3Frm.pas">
+				<Form>TRLProcess3Form</Form>
+			</DCCReference>
+			<DCCReference Include="CalcSumFrm.pas">
+				<Form>CalcSumForm</Form>
+			</DCCReference>
+			<DCCReference Include="TRLProcess4Frm.pas">
+				<Form>TRLProcess4Form</Form>
+			</DCCReference>
+			<DCCReference Include="AddDopFrm.pas">
+				<Form>AddDopForm</Form>
+			</DCCReference>
+			<DCCReference Include="TRLProcess5Frm.pas">
+				<Form>TRLProcess5Form</Form>
+			</DCCReference>
+			<DCCReference Include="TOPlanProcFrm.pas">
+				<Form>TOPlanProcForm</Form>
+			</DCCReference>
+			<DCCReference Include="TRLProcess6Frm.pas">
+				<Form>TRLProcess6Form</Form>
+			</DCCReference>
+			<DCCReference Include="GenListFrm.pas">
+				<Form>GenListForm</Form>
+			</DCCReference>
+			<DCCReference Include="AddUSETRFrm.pas">
+				<Form>AddUSETRForm</Form>
+			</DCCReference>
+			<DCCReference Include="MatUseAnFrm.pas">
+				<Form>MatUseAnForm</Form>
+			</DCCReference>
+			<DCCReference Include="ZTOShablonFrm.pas">
+				<Form>ZTOShablonForm</Form>
+			</DCCReference>
+			<DCCReference Include="imDogAddDateFrm.pas">
+				<Form>imDogAddDateForm</Form>
+			</DCCReference>
+			<DCCReference Include="CashFlowsFrm.pas">
+				<Form>CashFlowsForm</Form>
+			</DCCReference>
+			<DCCReference Include="ReversStateFrm.pas">
+				<Form>ReversStateForm</Form>
+			</DCCReference>
+			<DCCReference Include="MakeSmetaSablonFrm.pas">
+				<Form>MakeSmetaSablonForm</Form>
+			</DCCReference>
+			<DCCReference Include="common\FactDocCreate.pas"/>
+			<DCCReference Include="common\SingletonTemplate.pas"/>
+			<DCCReference Include="AddImBaseFrm.pas">
+				<Form>AddImBaseForm</Form>
+			</DCCReference>
+			<DCCReference Include="common\dzFinPlan.pas"/>
+			<DCCReference Include="AddWorkInPlanFrm.pas">
+				<Form>AddWorkInPlanForm</Form>
+			</DCCReference>
+			<DCCReference Include="sprWSHEADFrm.pas">
+				<Form>sprWSHEADForm</Form>
+			</DCCReference>
+			<DCCReference Include="RepMKDFrm.pas">
+				<Form>RepMKDForm</Form>
+			</DCCReference>
+			<DCCReference Include="Rep2Frm.pas">
+				<Form>Rep2Form</Form>
+			</DCCReference>
+			<DCCReference Include="AcCodeOborotFrm.pas">
+				<Form>AcCodeOborotForm</Form>
+			</DCCReference>
+			<DCCReference Include="UNFORESEENFrm.pas">
+				<Form>UNFORESEENForm</Form>
+			</DCCReference>
+			<DCCReference Include="FactDateFrm.pas">
+				<Form>FactDateForm</Form>
+			</DCCReference>
+			<DCCReference Include="OsmFrm.pas">
+				<Form>OsmForm</Form>
+			</DCCReference>
+			<DCCReference Include="TRFinPlanEditFrm.pas">
+				<Form>TRFinPlanEditForm</Form>
+			</DCCReference>
+			<DCCReference Include="LCurRemFrm.pas">
+				<Form>LCurRemForm</Form>
+			</DCCReference>
+			<DCCReference Include="CurRemFrm.pas">
+				<Form>CurRemForm</Form>
+			</DCCReference>
+			<DCCReference Include="PlanRepFrm.pas">
+				<Form>PlanRepForm</Form>
+			</DCCReference>
+			<DCCReference Include="InsTRWorkBDRFrm.pas">
+				<Form>InsTRWorkBDRForm</Form>
+			</DCCReference>
+			<DCCReference Include="YMakeFinPlanFrm.pas">
+				<Form>YMakeFinPlanForm</Form>
+			</DCCReference>
+			<DCCReference Include="TRLProcess7Frm.pas">
+				<Form>TRLProcess7Form</Form>
+			</DCCReference>
+			<DCCReference Include="AnalizTOFrm.pas">
+				<Form>AnalizTOForm</Form>
+			</DCCReference>
+			<DCCReference Include="TRProcess1Frm.pas">
+				<Form>TRProcess1Form</Form>
+			</DCCReference>
+			<DCCReference Include="TRLProcess2Frm.pas">
+				<Form>TRLProcess2Form</Form>
+			</DCCReference>
+			<DCCReference Include="TRProcess2Frm.pas">
+				<Form>TRProcess2Form</Form>
+			</DCCReference>
+			<DCCReference Include="TRProcess3Frm.pas">
+				<Form>TRProcess3Form</Form>
+			</DCCReference>
+			<DCCReference Include="TRProcess4Frm.pas">
+				<Form>TRProcess4Form</Form>
+			</DCCReference>
+			<DCCReference Include="TRProcess7Frm.pas">
+				<Form>TRProcess7Form</Form>
+			</DCCReference>
+			<DCCReference Include="TRProcess5Frm.pas">
+				<Form>TRProcess5Form</Form>
+			</DCCReference>
+			<DCCReference Include="AnalizMatFrm.pas">
+				<Form>AnalizMatForm</Form>
+			</DCCReference>
+			<DCCReference Include="TRProcess6Frm.pas">
+				<Form>TRProcess6Form</Form>
+			</DCCReference>
+			<DCCReference Include="GrafRepFrm.pas">
+				<Form>GrafRepForm</Form>
+			</DCCReference>
+			<DCCReference Include="POActSmetaFrm.pas">
+				<Form>POActSmetaForm</Form>
+			</DCCReference>
+			<DCCReference Include="LKShablonFrm.pas">
+				<Form>LKShablonForm</Form>
+			</DCCReference>
+			<DCCReference Include="LKTYPEFrm.pas">
+				<Form>LKTYPEForm</Form>
+			</DCCReference>
+			<DCCReference Include="LKHeadFrm.pas">
+				<Form>LKHeadForm</Form>
+			</DCCReference>
+			<DCCReference Include="GetGraphPeriodFrm.pas">
+				<Form>GetGraphPeriodForm</Form>
+			</DCCReference>
+			<DCCReference Include="ShbSrvListFrm.pas">
+				<Form>ShbSrvListForm</Form>
+			</DCCReference>
+			<DCCReference Include="ShbSrvCheckFrm.pas">
+				<Form>ShbSrvCheckForm</Form>
+			</DCCReference>
+			<DCCReference Include="GetPeriodShbSrvFrm.pas">
+				<Form>GetPeriodShbSrvForm</Form>
+			</DCCReference>
+			<DCCReference Include="LKSPECFrm.pas">
+				<Form>LKSPECForm</Form>
+			</DCCReference>
+			<DCCReference Include="TrProc7RepFrm.pas">
+				<Form>TrProc7RepForm</Form>
+			</DCCReference>
+			<DCCReference Include="MakeDocProcessFrm.pas">
+				<Form>MakeDocProcessForm</Form>
+			</DCCReference>
+			<DCCReference Include="HouseTarifPeriodFrm.pas">
+				<Form>HouseTarifPeriodForm</Form>
+			</DCCReference>
+			<DCCReference Include="BDRFactEditFrm.pas">
+				<Form>BDRFactEditForm</Form>
+			</DCCReference>
+			<DCCReference Include="FinHouseNewFrm.pas">
+				<Form>FinHouseNewForm</Form>
+			</DCCReference>
+			<DCCReference Include="RepToPFFrm.pas">
+				<Form>RepToPFForm</Form>
+			</DCCReference>
+			<DCCReference Include="SrvDogAddFrm.pas">
+				<Form>SrvDogAddForm</Form>
+			</DCCReference>
+			<DCCReference Include="oiFactShbFrm.pas">
+				<Form>oiFactShbForm</Form>
+			</DCCReference>
+			<DCCReference Include="RepWorkFrm.pas">
+				<Form>RepWorkForm</Form>
+			</DCCReference>
+			<DCCReference Include="TaskFrm.pas">
+				<Form>TaskForm</Form>
+			</DCCReference>
+			<DCCReference Include="TaskEditFrm.pas">
+				<Form>TaskEditForm</Form>
+			</DCCReference>
+			<DCCReference Include="Process5FrmSum.pas">
+				<Form>Process5FormSum</Form>
+			</DCCReference>
+			<DCCReference Include="TRClosePeriodFrm.pas">
+				<Form>TRClosePeriodForm</Form>
+			</DCCReference>
+			<DCCReference Include="AddGraphToFrm.pas">
+				<Form>AddGraphToForm</Form>
+			</DCCReference>
+			<DCCReference Include="ControlNGPFrm.pas">
+				<Form>ControlNGPForm</Form>
+			</DCCReference>
+			<DCCReference Include="NGRepFrm.pas">
+				<Form>NGRepForm</Form>
+			</DCCReference>
+			<DCCReference Include="MatClassFrm.pas">
+				<Form>MatClassForm</Form>
+			</DCCReference>
+			<DCCReference Include="MatClassAddFrm.pas">
+				<Form>MatClassAddForm</Form>
+			</DCCReference>
+			<DCCReference Include="MoveMatClassFrm.pas">
+				<Form>MoveMatClassForm</Form>
+			</DCCReference>
+			<DCCReference Include="MatClassLinkFrm.pas">
+				<Form>MatClassLinkForm</Form>
+			</DCCReference>
+			<DCCReference Include="ClosePeriodFrm.pas">
+				<Form>ClosePeriodForm</Form>
+			</DCCReference>
+			<DCCReference Include="OrderHeadFrm.pas">
+				<Form>OrderHeadForm</Form>
+			</DCCReference>
+			<DCCReference Include="OrderSpecFrm.pas">
+				<Form>OrderSpecForm</Form>
+			</DCCReference>
+			<DCCReference Include="POShablonSmetaFrm.pas">
+				<Form>POShablonSmetaForm</Form>
+			</DCCReference>
+			<DCCReference Include="AddSmetaDataFrm.pas">
+				<Form>AddSmetaDataForm</Form>
+			</DCCReference>
+			<DCCReference Include="AddShablonSmetaHouseFrm.pas">
+				<Form>AddShablonSmetaHouseForm</Form>
+			</DCCReference>
+			<DCCReference Include="DocCostFrm.pas">
+				<Form>DocCostForm</Form>
+			</DCCReference>
+			<DCCReference Include="NGPRoomFrm.pas">
+				<Form>NGPRoomForm</Form>
+			</DCCReference>
+			<DCCReference Include="ArRepFrm.pas">
+				<Form>ArRepForm</Form>
+			</DCCReference>
+			<DCCReference Include="ExpirDopFrm.pas">
+				<Form>ExpirDopForm</Form>
+			</DCCReference>
+			<DCCReference Include="common\jbdbf.pas"/>
+			<DCCReference Include="common\RussianCodeTables.pas"/>
+			<DCCReference Include="common\helper\ApplicationVersionHelper.pas"/>
+			<DCCReference Include="common\helper\VersionInfo.pas"/>
+			<DCCReference Include="DefArhFrm.pas">
+				<Form>DefArhForm</Form>
+			</DCCReference>
+			<DCCReference Include="HouseCardFrm.pas">
+				<Form>HouseCardForm</Form>
+				<FormType>dfm</FormType>
+			</DCCReference>
+			<DCCReference Include="common\HouseCardUnit.pas"/>
+			<DCCReference Include="RepByPOFrm.pas">
+				<Form>RepByPOForm</Form>
+			</DCCReference>
+			<DCCReference Include="WorkScheduleFrm.pas">
+				<Form>WorkScheduleForm</Form>
+			</DCCReference>
+			<DCCReference Include="FactAddFrm1.pas">
+				<Form>FactAddForm1</Form>
+			</DCCReference>
+			<DCCReference Include="FactAddFrm.pas">
+				<Form>FactAddForm</Form>
+			</DCCReference>
+			<DCCReference Include="POShablonSmetaArhivFrm.pas">
+				<Form>POShablonSmetaArhivForm</Form>
+				<FormType>dfm</FormType>
+			</DCCReference>
+			<DCCReference Include="MatRepDetailFrm.pas">
+				<Form>MatRepDetailForm</Form>
+			</DCCReference>
+			<DCCReference Include="PriceanalysFrm.pas">
+				<Form>PriceanalysForm</Form>
+				<FormType>dfm</FormType>
+			</DCCReference>
+			<DCCReference Include="opuSprFrm.pas">
+				<Form>opuSprForm</Form>
+			</DCCReference>
+			<DCCReference Include="OPURepFrm.pas">
+				<Form>OPURepForm</Form>
+			</DCCReference>
+			<DCCReference Include="OPURep1Frm.pas">
+				<Form>OPURep1Form</Form>
+			</DCCReference>
+			<DCCReference Include="OPURep2Frm.pas">
+				<Form>OPURep2Form</Form>
+			</DCCReference>
+			<DCCReference Include="common\common.pas"/>
+			<DCCReference Include="common\FilterFrm.pas">
+				<Form>FilterForm</Form>
+			</DCCReference>
+			<DCCReference Include="common\UnionDispFrm.pas">
+				<Form>UnionDispForm</Form>
+				<FormType>dfm</FormType>
+			</DCCReference>
+			<DCCReference Include="FactDocHistoryFrm.pas">
+				<Form>FactDocHistoryForm</Form>
+				<FormType>dfm</FormType>
+			</DCCReference>
+			<DCCReference Include="service\PeriodTrfactHistoryFrm.pas">
+				<Form>PeriodTrfactHistoryForm</Form>
+				<FormType>dfm</FormType>
+			</DCCReference>
+			<DCCReference Include="DispLoginFrm.pas">
+				<Form>DispLoginForm</Form>
+				<FormType>dfm</FormType>
+			</DCCReference>
+			<DCCReference Include="common\RqSql.pas"/>
+			<DCCReference Include="common\RqDetailFrm.pas">
+				<Form>RqDetailForm</Form>
+			</DCCReference>
+			<DCCReference Include="..\CoolLib\common\dezNewLoadData.pas"/>
+			<DCCReference Include="LoadFrom1C8Frm.pas">
+				<Form>LoadFrom1C8Form</Form>
+			</DCCReference>
+			<DCCReference Include="common\BdrRep.pas"/>
+			<DCCReference Include="ObjFrm.pas">
+				<Form>ObjForm</Form>
+			</DCCReference>
+			<DCCReference Include="ObjPoEditFrm.pas">
+				<Form>ObjPoEditForm</Form>
+				<FormType>dfm</FormType>
+			</DCCReference>
+			<DCCReference Include="ObjOSEditFrm.pas">
+				<Form>ObjOSEditForm</Form>
+				<FormType>dfm</FormType>
+			</DCCReference>
+			<DCCReference Include="ObjAkt1Frm.pas">
+				<Form>ObjAkt1Form</Form>
+			</DCCReference>
+			<DCCReference Include="ObjAkt2Frm.pas">
+				<Form>ObjAkt2Form</Form>
+				<FormType>dfm</FormType>
+			</DCCReference>
+			<DCCReference Include="RequestFrm.pas">
+				<Form>RequestForm</Form>
+			</DCCReference>
+			<DCCReference Include="common\RQ_DM.pas">
+				<Form>RQ_DModule</Form>
+				<FormType>dfm</FormType>
+				<DesignClass>TDataModule</DesignClass>
+			</DCCReference>
+			<DCCReference Include="OtherFactFrm.pas">
+				<Form>OtherFactForm</Form>
+			</DCCReference>
+			<DCCReference Include="CommFactFrm.pas">
+				<Form>CommFactForm</Form>
+			</DCCReference>
+			<DCCReference Include="Mat1CFrm.pas">
+				<Form>Mat1CForm</Form>
+				<FormType>dfm</FormType>
+			</DCCReference>
+			<DCCReference Include="OrderWorkFrm.pas">
+				<Form>OrderWorkForm</Form>
+			</DCCReference>
+			<DCCReference Include="ImportControlFrm.pas">
+				<Form>ImportControlForm</Form>
+			</DCCReference>
+			<DCCReference Include="IPUFrm.pas">
+				<Form>IPUForm</Form>
+			</DCCReference>
+			<DCCReference Include="IPUEDITFrm.pas">
+				<Form>IPUEDITForm</Form>
+				<FormType>dfm</FormType>
+			</DCCReference>
+			<DCCReference Include="ObjLift.pas"/>
+			<DCCReference Include="OrderWorkEditFrm.pas">
+				<Form>OrderWorkEditForm</Form>
+			</DCCReference>
+			<DCCReference Include="OrderClosePeriodFrm.pas">
+				<Form>OrderClosePeriodForm</Form>
+			</DCCReference>
+			<DCCReference Include="DocCostFrm.Ext.pas"/>
+			<DCCReference Include="MailTaskFrm.pas">
+				<Form>MailTaskForm</Form>
+			</DCCReference>
+			<DCCReference Include="OtherPlanFrm.pas">
+				<Form>OtherPlanForm</Form>
+			</DCCReference>
+			<DCCReference Include="PDUHistoryFrm.pas">
+				<Form>PDUHistoryForm</Form>
+			</DCCReference>
+			<DCCReference Include="FinPlanSpecFrm.pas">
+				<Form>FinPlanSpecForm</Form>
+			</DCCReference>
+			<DCCReference Include="FinPlanSpecEditFrm.pas">
+				<Form>FinPlanSpecEditForm</Form>
+				<FormType>dfm</FormType>
+			</DCCReference>
+			<DCCReference Include="ScanBDR.pas"/>
+			<DCCReference Include="BDRFactDocEditFrm.pas">
+				<Form>BDRFactDocEditForm</Form>
+				<FormType>dfm</FormType>
+			</DCCReference>
+			<DCCReference Include="common\resStr.pas"/>
+			<DCCReference Include="HouseFirmFrm.pas">
+				<Form>HouseFirmForm</Form>
+			</DCCReference>
+			<DCCReference Include="HouseFirmEditFrm.pas">
+				<Form>HouseFirmEditForm</Form>
+				<FormType>dfm</FormType>
+			</DCCReference>
+			<DCCReference Include="RepUseFundsUnit.pas"/>
+			<DCCReference Include="hrenfrm.pas">
+				<Form>herForm</Form>
+			</DCCReference>
+			<DCCReference Include="TO\PlanToFrm.pas">
+				<Form>PlanToForm</Form>
+			</DCCReference>
+			<DCCReference Include="TO\CurRemTOFrm.pas">
+				<Form>CurRemTOForm</Form>
+			</DCCReference>
+			<DCCReference Include="TO\PlanTOUnit.pas"/>
+			<DCCReference Include="TO\CurRemTOAddFrm.pas">
+				<Form>CurRemTOAddForm</Form>
+				<FormType>dfm</FormType>
+			</DCCReference>
+			<DCCReference Include="SIGNDogEditFrm.pas">
+				<Form>SIGNDogEditForm</Form>
+				<FormType>dfm</FormType>
+			</DCCReference>
+			<DCCReference Include="IPUFactBdrFrm.pas">
+				<Form>IPUFactBdrForm</Form>
+			</DCCReference>
+			<DCCReference Include="IPUFactBdrEditFrm.pas">
+				<Form>IPUFactBdrEditForm</Form>
+				<FormType>dfm</FormType>
+			</DCCReference>
+			<DCCReference Include="TO\WorkListTOFrm.pas">
+				<Form>WorkListTOForm</Form>
+			</DCCReference>
+			<DCCReference Include="TO\KServisworkLookFrm.pas">
+				<Form>KServisworkLookForm</Form>
+			</DCCReference>
+			<DCCReference Include="TO\WorkListTO_partial.pas"/>
+			<DCCReference Include="TO\ClassMatLookUpFrm.pas">
+				<Form>ClassMatLookUpForm</Form>
+			</DCCReference>
+			<DCCReference Include="TO\AddMatTOFrm.pas">
+				<Form>AddMatTOForm</Form>
+			</DCCReference>
+			<DCCReference Include="RepPlanTRFrm.pas">
+				<Form>RepPlanTRForm</Form>
+			</DCCReference>
+			<DCCReference Include="RepGraphFrm.pas">
+				<Form>RepGraphForm</Form>
+			</DCCReference>
+			<DCCReference Include="VentSmetalFrm.pas">
+				<Form>VentSmetalForm</Form>
+			</DCCReference>
+			<DCCReference Include="TO\ReportPlanTOFrm.pas">
+				<Form>ReportPlanTOForm</Form>
+			</DCCReference>
+			<DCCReference Include="Entity\WorkSpecList.pas"/>
+			<DCCReference Include="Entity\RepositoryUnit.pas"/>
+			<DCCReference Include="Entity\WorkSpecMaterial.pas"/>
+			<DCCReference Include="TO\PlanFactTOFrm.pas">
+				<Form>PlanFactTOForm</Form>
+			</DCCReference>
+			<DCCReference Include="Entity\ShowPrikazUnit.pas"/>
+			<DCCReference Include="ShowPricazEditFrm.pas">
+				<Form>ShowPricazEditForm</Form>
+				<FormType>dfm</FormType>
+			</DCCReference>
+			<DCCReference Include="Entity\Kontragent.pas"/>
+			<DCCReference Include="KontragentEditFrm.pas">
+				<Form>KontragentEditForm</Form>
+				<FormType>dfm</FormType>
+			</DCCReference>
+			<DCCReference Include="Entity\Piople.pas"/>
+			<DCCReference Include="Entity\Controllers\KontragentRepository.pas"/>
+			<DCCReference Include="Entity\Repository\DBHelpers.pas"/>
+			<DCCReference Include="Entity\Repository\DBConnection.pas"/>
+			<DCCReference Include="RepMatUnfFrm.pas">
+				<Form>RepMatUnfForm</Form>
+			</DCCReference>
+			<None Include="ModelSupport_Dez\default.txaPackage"/>
+			<None Include="ModelSupport_Dez\default.txvpck"/>
+			<BuildConfiguration Include="Debug">
+				<Key>Cfg_2</Key>
+				<CfgParent>Base</CfgParent>
+			</BuildConfiguration>
+			<BuildConfiguration Include="Base">
+				<Key>Base</Key>
+			</BuildConfiguration>
+			<BuildConfiguration Include="Release">
+				<Key>Cfg_1</Key>
+				<CfgParent>Base</CfgParent>
+			</BuildConfiguration>
+		</ItemGroup>
+		<ProjectExtensions>
+			<Borland.Personality>Delphi.Personality.12</Borland.Personality>
+			<Borland.ProjectType/>
+			<BorlandProject>
+				<Delphi.Personality>
+					<Source>
+						<Source Name="MainSource">Dez.dpr</Source>
+					</Source>
+					<VersionInfo>
+						<VersionInfo Name="IncludeVerInfo">False</VersionInfo>
+						<VersionInfo Name="AutoIncBuild">False</VersionInfo>
+						<VersionInfo Name="MajorVer">1</VersionInfo>
+						<VersionInfo Name="MinorVer">0</VersionInfo>
+						<VersionInfo Name="Release">0</VersionInfo>
+						<VersionInfo Name="Build">0</VersionInfo>
+						<VersionInfo Name="Debug">False</VersionInfo>
+						<VersionInfo Name="PreRelease">False</VersionInfo>
+						<VersionInfo Name="Special">False</VersionInfo>
+						<VersionInfo Name="Private">False</VersionInfo>
+						<VersionInfo Name="DLL">False</VersionInfo>
+						<VersionInfo Name="Locale">1049</VersionInfo>
+						<VersionInfo Name="CodePage">1251</VersionInfo>
+					</VersionInfo>
+					<VersionInfoKeys>
+						<VersionInfoKeys Name="CompanyName"/>
+						<VersionInfoKeys Name="FileDescription"/>
+						<VersionInfoKeys Name="FileVersion">1.0.0.0</VersionInfoKeys>
+						<VersionInfoKeys Name="InternalName"/>
+						<VersionInfoKeys Name="LegalCopyright"/>
+						<VersionInfoKeys Name="LegalTrademarks"/>
+						<VersionInfoKeys Name="OriginalFilename"/>
+						<VersionInfoKeys Name="ProductName"/>
+						<VersionInfoKeys Name="ProductVersion">1.0.0.0</VersionInfoKeys>
+						<VersionInfoKeys Name="Comments"/>
+					</VersionInfoKeys>
+					<Excluded_Packages>
+						<Excluded_Packages Name="C:\Windows\SYSTEM32\frxTee16.bpl">(untitled)</Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\dcloffice2k160.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\dclofficexp160.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
+					</Excluded_Packages>
+				</Delphi.Personality>
+				<Platforms>
+					<Platform value="Win64">False</Platform>
+					<Platform value="Win32" Profile="dez">True</Platform>
+				</Platforms>
+				<ModelSupport>False</ModelSupport>
+				<Deployment>
+					<DeployFile Class="ProjectOutput" Configuration="Debug" LocalName="..\..\Bin\Dez.exe">
+						<Platform Name="Win32"/>
+					</DeployFile>
+					<DeployFile Class="DebugSymbols" Configuration="Debug" LocalName="..\..\Bin\Dez.rsm">
+						<Platform Name="Win32">
+							<RemoteName>Dez.rsm</RemoteName>
+						</Platform>
+					</DeployFile>
+					<DeployClass Name="ProjectOutput" Required="true">
+						<Platform Name="OSX32">
+							<RemoteDir>Contents\MacOS</RemoteDir>
+							<Operation>1</Operation>
+						</Platform>
+						<Platform Name="Win32">
+							<Operation>0</Operation>
+						</Platform>
+					</DeployClass>
+					<DeployClass Name="DependencyPackage" Required="true">
+						<Platform Name="OSX32">
+							<RemoteDir>Contents\MacOS</RemoteDir>
+							<Operation>1</Operation>
+							<Extensions>.dylib</Extensions>
+						</Platform>
+						<Platform Name="Win32">
+							<Operation>0</Operation>
+							<Extensions>.bpl</Extensions>
+						</Platform>
+					</DeployClass>
+					<DeployClass Name="DependencyModule">
+						<Platform Name="OSX32">
+							<RemoteDir>Contents\MacOS</RemoteDir>
+							<Operation>1</Operation>
+							<Extensions>.dylib</Extensions>
+						</Platform>
+						<Platform Name="Win32">
+							<Operation>0</Operation>
+							<Extensions>.dll;.bpl</Extensions>
+						</Platform>
+					</DeployClass>
+					<DeployClass Name="ProjectOSXInfoPList">
+						<Platform Name="OSX32">
+							<RemoteDir>Contents</RemoteDir>
+							<Operation>1</Operation>
+						</Platform>
+					</DeployClass>
+					<DeployClass Name="File">
+						<Platform Name="OSX32">
+							<RemoteDir>Contents\MacOS</RemoteDir>
+							<Operation>0</Operation>
+						</Platform>
+						<Platform Name="Win32">
+							<Operation>0</Operation>
+						</Platform>
+					</DeployClass>
+					<DeployClass Name="DebugSymbols">
+						<Platform Name="OSX32">
+							<RemoteDir>Contents\MacOS</RemoteDir>
+							<Operation>1</Operation>
+						</Platform>
+						<Platform Name="Win32">
+							<Operation>0</Operation>
+						</Platform>
+					</DeployClass>
+					<DeployClass Name="DependencyFramework">
+						<Platform Name="OSX32">
+							<RemoteDir>Contents\MacOS</RemoteDir>
+							<Operation>1</Operation>
+							<Extensions>.framework</Extensions>
+						</Platform>
+						<Platform Name="Win32">
+							<Operation>0</Operation>
+						</Platform>
+					</DeployClass>
+					<DeployClass Name="AdditionalDebugSymbols">
+						<Platform Name="OSX32">
+							<RemoteDir>Contents\MacOS</RemoteDir>
+							<Operation>1</Operation>
+						</Platform>
+						<Platform Name="Win32">
+							<Operation>0</Operation>
+						</Platform>
+					</DeployClass>
+					<DeployClass Name="ProjectOSXResource">
+						<Platform Name="OSX32">
+							<RemoteDir>Contents\Resources</RemoteDir>
+							<Operation>1</Operation>
+						</Platform>
+					</DeployClass>
+					<ProjectRoot Name="$(PROJECTNAME).app" Platform="OSX32"/>
+					<ProjectRoot Name="$(PROJECTNAME)" Platform="Win64"/>
+					<ProjectRoot Name="$(PROJECTNAME)" Platform="Win32"/>
+				</Deployment>
+			</BorlandProject>
+			<ProjectFileVersion>12</ProjectFileVersion>
+		</ProjectExtensions>
+		<Import Condition="Exists('$(BDS)\Bin\CodeGear.Delphi.Targets')" Project="$(BDS)\Bin\CodeGear.Delphi.Targets"/>
+		<Import Condition="Exists('$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj')" Project="$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj"/>
+		<Import Condition="Exists('$(MSBuildProjectName).deployproj')" Project="$(MSBuildProjectName).deployproj"/>
+	</Project>
+
+<!-- EurekaLog First Line
+[Exception Log]
+EurekaLog Version=6105
+Activate=0
+Activate Handle=1
+Save Log File=1
+Foreground Tab=0
+Freeze Activate=0
+Freeze Timeout=1
+SMTP From="eurekalog@email.com"
+SMTP Host=""
+SMTP Port=25
+SMTP UserID=""
+SMTP Password=
+Append to Log=0
+TerminateBtn Operation=2
+Errors Number=32
+Errors Terminate=3
+Email Address=""
+Email Object=""
+Email Send Options=0
+Output Path="bug/"
+Encrypt Password=""
+AutoCloseDialogSecs=0
+WebSendMode=0
+SupportULR=
+HTMLLayout Count=15
+HTMLLine0="%U003Chtml%U003E"
+HTMLLine1="  %U003Chead%U003E"
+HTMLLine2="  %U003C/head%U003E"
+HTMLLine3="  %U003Cbody TopMargin=10 LeftMargin=10%U003E"
+HTMLLine4="    %U003Ctable width="100%%" border="0"%U003E"
+HTMLLine5="      %U003Ctr%U003E"
+HTMLLine6="        %U003Ctd nowrap%U003E"
+HTMLLine7="          %U003Cfont face="Lucida Console, Courier" size="2"%U003E"
+HTMLLine8="            %U003C%%HTML_TAG%%%U003E"
+HTMLLine9="          %U003C/font%U003E"
+HTMLLine10="        %U003C/td%U003E"
+HTMLLine11="      %U003C/tr%U003E"
+HTMLLine12="    %U003C/table%U003E"
+HTMLLine13="  %U003C/body%U003E"
+HTMLLine14="%U003C/html%U003E"
+AutoCrashOperation=2
+AutoCrashNumber=10
+AutoCrashMinutes=1
+WebURL=""
+WebUserID=
+WebPassword=
+WebPort=0
+AttachedFiles=
+ProxyURL=
+ProxyUser=
+ProxyPassword=
+ProxyPort=8080
+TrakerUser=""
+TrakerPassword=
+TrakerAssignTo=
+TrakerProject=
+TrakerCategory=
+TrakerTrialID=
+ZipPassword=
+PreBuildEvent=
+PostSuccessfulBuildEvent=
+PostFailureBuildEvent=
+ExceptionDialogType=2
+Count=2
+Act0=1
+T0=EMyException
+NM0=0
+Z0=2
+D0=2
+H0=2
+A0=0
+Act1=1
+T1=dezException
+NM1=0
+Z1=2
+D1=3
+H1=1
+A1=0
+EMail Message Line Count=0
+loNoDuplicateErrors=1
+loAppendReproduceText=0
+loDeleteLogAtVersionChange=0
+loAddComputerNameInLogFileName=0
+loSaveModulesAndProcessesSections=1
+loSaveAssemblerAndCPUSections=0
+soAppStartDate=1
+soAppName=1
+soAppVersionNumber=1
+soAppParameters=1
+soAppCompilationDate=1
+soAppUpTime=1
+soExcDate=1
+soExcAddress=1
+soExcModuleName=1
+soExcModuleVersion=1
+soExcType=1
+soExcMessage=1
+soExcID=1
+soExcCount=1
+soExcStatus=1
+soExcNote=1
+soUserID=1
+soUserName=1
+soUserEmail=1
+soUserPrivileges=1
+soUserCompany=1
+soActCtlsFormClass=1
+soActCtlsFormText=1
+soActCtlsControlClass=1
+soActCtlsControlText=1
+soCmpName=1
+soCmpTotalMemory=1
+soCmpFreeMemory=1
+soCmpTotalDisk=1
+soCmpFreeDisk=1
+soCmpSysUpTime=1
+soCmpProcessor=1
+soCmpDisplayMode=1
+soCmpDisplayDPI=1
+soCmpVideoCard=1
+soCmpPrinter=1
+soOSType=1
+soOSBuildN=1
+soOSUpdate=1
+soOSLanguage=1
+soOSCharset=1
+soNetIP=1
+soNetSubmask=1
+soNetGateway=1
+soNetDNS1=1
+soNetDNS2=1
+soNetDHCP=1
+soCustomData=1
+sndShowSendDialog=1
+sndShowSuccessFailureMsg=0
+sndSendEntireLog=0
+sndSendXMLLogCopy=0
+sndSendScreenshot=1
+sndUseOnlyActiveWindow=0
+sndSendLastHTMLPage=1
+sndSendInSeparatedThread=0
+sndAddDateInFileName=0
+sndAddComputerNameInFileName=0
+edoSendErrorReportChecked=1
+edoAttachScreenshotChecked=1
+edoShowCopyToClipOption=1
+edoShowDetailsButton=0
+edoShowInDetailedMode=0
+edoShowInTopMostMode=0
+edoUseEurekaLogLookAndFeel=0
+edoShowSendErrorReportOption=0
+edoShowAttachScreenshotOption=1
+edoShowCustomButton=0
+csoShowDLLs=1
+csoShowBPLs=1
+csoShowBorlandThreads=1
+csoShowWindowsThreads=1
+csoDoNotStoreProcNames=0
+boPauseBorlandThreads=0
+boDoNotPauseMainThread=0
+boPauseWindowsThreads=0
+boUseMainModuleOptions=1
+boCopyLogInCaseOfError=1
+boSaveCompressedCopyInCaseOfError=0
+boHandleSafeCallExceptions=1
+boCallRTLExceptionEvent=0
+boCatchHandledExceptions=0
+loCatchLeaks=0
+loGroupsSonLeaks=1
+loHideBorlandLeaks=1
+loFreeAllLeaks=1
+loCatchLeaksExceptions=1
+cfoReduceFileSize=1
+cfoCheckFileCorruption=0
+cfoUseEL7=0
+Count mtInformationMsgCaption=1
+mtInformationMsgCaption0="Information."
+Count mtQuestionMsgCaption=1
+mtQuestionMsgCaption0="Question."
+Count mtErrorMsgCaption=1
+mtErrorMsgCaption0="Error."
+Count mtDialog_Caption=1
+mtDialog_Caption0="Error occurred"
+Count mtDialog_ErrorMsgCaption=2
+mtDialog_ErrorMsgCaption0="An error has occurred during program execution."
+mtDialog_ErrorMsgCaption1="Please read the following information for further details."
+Count mtDialog_GeneralCaption=1
+mtDialog_GeneralCaption0="General"
+Count mtDialog_GeneralHeader=1
+mtDialog_GeneralHeader0="General Information"
+Count mtDialog_CallStackCaption=1
+mtDialog_CallStackCaption0="Call Stack"
+Count mtDialog_CallStackHeader=1
+mtDialog_CallStackHeader0="Call Stack Information"
+Count mtDialog_ModulesCaption=1
+mtDialog_ModulesCaption0="Modules"
+Count mtDialog_ModulesHeader=1
+mtDialog_ModulesHeader0="Modules Information"
+Count mtDialog_ProcessesCaption=1
+mtDialog_ProcessesCaption0="Processes"
+Count mtDialog_ProcessesHeader=1
+mtDialog_ProcessesHeader0="Processes Information"
+Count mtDialog_AsmCaption=1
+mtDialog_AsmCaption0="Assembler"
+Count mtDialog_AsmHeader=1
+mtDialog_AsmHeader0="Assembler Information"
+Count mtDialog_CPUCaption=1
+mtDialog_CPUCaption0="CPU"
+Count mtDialog_CPUHeader=1
+mtDialog_CPUHeader0="CPU Information"
+Count mtDialog_OKButtonCaption=1
+mtDialog_OKButtonCaption0="%U0026OK"
+Count mtDialog_TerminateButtonCaption=1
+mtDialog_TerminateButtonCaption0="%U0026Terminate"
+Count mtDialog_RestartButtonCaption=1
+mtDialog_RestartButtonCaption0="%U0026Restart"
+Count mtDialog_DetailsButtonCaption=1
+mtDialog_DetailsButtonCaption0="%U0026Details"
+Count mtDialog_CustomButtonCaption=1
+mtDialog_CustomButtonCaption0="%U0026Help"
+Count mtDialog_SendMessage=1
+mtDialog_SendMessage0="%U0026Send this error via Internet"
+Count mtDialog_ScreenshotMessage=1
+mtDialog_ScreenshotMessage0="%U0026Attach a Screenshot image"
+Count mtDialog_CopyMessage=1
+mtDialog_CopyMessage0="%U0026Copy to Clipboard"
+Count mtDialog_SupportMessage=1
+mtDialog_SupportMessage0="Go to the Support Page"
+Count mtMSDialog_ErrorMsgCaption=1
+mtMSDialog_ErrorMsgCaption0="The application has encountered a problem. We are sorry for the inconvenience."
+Count mtMSDialog_RestartCaption=1
+mtMSDialog_RestartCaption0="Restart application."
+Count mtMSDialog_TerminateCaption=1
+mtMSDialog_TerminateCaption0="Terminate application."
+Count mtMSDialog_PleaseCaption=1
+mtMSDialog_PleaseCaption0="Please tell us about this problem."
+Count mtMSDialog_DescriptionCaption=1
+mtMSDialog_DescriptionCaption0="We have created an error report that you can send to us. We will treat this report as confidential and anonymous."
+Count mtMSDialog_SeeDetailsCaption=1
+mtMSDialog_SeeDetailsCaption0="To see what data the error report contains,"
+Count mtMSDialog_SeeClickCaption=1
+mtMSDialog_SeeClickCaption0="click here."
+Count mtMSDialog_HowToReproduceCaption=1
+mtMSDialog_HowToReproduceCaption0="What were you doing when the problem happened (optional)?"
+Count mtMSDialog_EmailCaption=1
+mtMSDialog_EmailCaption0="Email address (optional):"
+Count mtMSDialog_SendButtonCaption=1
+mtMSDialog_SendButtonCaption0="%U0026Send Error Report"
+Count mtMSDialog_NoSendButtonCaption=1
+mtMSDialog_NoSendButtonCaption0="%U0026Don't Send"
+Count mtLog_AppHeader=1
+mtLog_AppHeader0="Application"
+Count mtLog_AppStartDate=1
+mtLog_AppStartDate0="Start Date"
+Count mtLog_AppName=1
+mtLog_AppName0="Name/Description"
+Count mtLog_AppVersionNumber=1
+mtLog_AppVersionNumber0="Version Number"
+Count mtLog_AppParameters=1
+mtLog_AppParameters0="Parameters"
+Count mtLog_AppCompilationDate=1
+mtLog_AppCompilationDate0="Compilation Date"
+Count mtLog_AppUpTime=1
+mtLog_AppUpTime0="Up Time"
+Count mtLog_ExcHeader=1
+mtLog_ExcHeader0="Exception"
+Count mtLog_ExcDate=1
+mtLog_ExcDate0="Date"
+Count mtLog_ExcAddress=1
+mtLog_ExcAddress0="Address"
+Count mtLog_ExcModuleName=1
+mtLog_ExcModuleName0="Module Name"
+Count mtLog_ExcModuleVersion=1
+mtLog_ExcModuleVersion0="Module Version"
+Count mtLog_ExcType=1
+mtLog_ExcType0="Type"
+Count mtLog_ExcMessage=1
+mtLog_ExcMessage0="Message"
+Count mtLog_ExcID=1
+mtLog_ExcID0="ID"
+Count mtLog_ExcCount=1
+mtLog_ExcCount0="Count"
+Count mtLog_ExcStatus=1
+mtLog_ExcStatus0="Status"
+Count mtLog_ExcNote=1
+mtLog_ExcNote0="Note"
+Count mtLog_UserHeader=1
+mtLog_UserHeader0="User"
+Count mtLog_UserID=1
+mtLog_UserID0="ID"
+Count mtLog_UserName=1
+mtLog_UserName0="Name"
+Count mtLog_UserEmail=1
+mtLog_UserEmail0="Email"
+Count mtLog_UserCompany=1
+mtLog_UserCompany0="Company"
+Count mtLog_UserPrivileges=1
+mtLog_UserPrivileges0="Privileges"
+Count mtLog_ActCtrlsHeader=1
+mtLog_ActCtrlsHeader0="Active Controls"
+Count mtLog_ActCtrlsFormClass=1
+mtLog_ActCtrlsFormClass0="Form Class"
+Count mtLog_ActCtrlsFormText=1
+mtLog_ActCtrlsFormText0="Form Text"
+Count mtLog_ActCtrlsControlClass=1
+mtLog_ActCtrlsControlClass0="Control Class"
+Count mtLog_ActCtrlsControlText=1
+mtLog_ActCtrlsControlText0="Control Text"
+Count mtLog_CmpHeader=1
+mtLog_CmpHeader0="Computer"
+Count mtLog_CmpName=1
+mtLog_CmpName0="Name"
+Count mtLog_CmpTotalMemory=1
+mtLog_CmpTotalMemory0="Total Memory"
+Count mtLog_CmpFreeMemory=1
+mtLog_CmpFreeMemory0="Free Memory"
+Count mtLog_CmpTotalDisk=1
+mtLog_CmpTotalDisk0="Total Disk"
+Count mtLog_CmpFreeDisk=1
+mtLog_CmpFreeDisk0="Free Disk"
+Count mtLog_CmpSystemUpTime=1
+mtLog_CmpSystemUpTime0="System Up Time"
+Count mtLog_CmpProcessor=1
+mtLog_CmpProcessor0="Processor"
+Count mtLog_CmpDisplayMode=1
+mtLog_CmpDisplayMode0="Display Mode"
+Count mtLog_CmpDisplayDPI=1
+mtLog_CmpDisplayDPI0="Display DPI"
+Count mtLog_CmpVideoCard=1
+mtLog_CmpVideoCard0="Video Card"
+Count mtLog_CmpPrinter=1
+mtLog_CmpPrinter0="Printer"
+Count mtLog_OSHeader=1
+mtLog_OSHeader0="Operating System"
+Count mtLog_OSType=1
+mtLog_OSType0="Type"
+Count mtLog_OSBuildN=1
+mtLog_OSBuildN0="Build #"
+Count mtLog_OSUpdate=1
+mtLog_OSUpdate0="Update"
+Count mtLog_OSLanguage=1
+mtLog_OSLanguage0="Language"
+Count mtLog_OSCharset=1
+mtLog_OSCharset0="Charset"
+Count mtLog_NetHeader=1
+mtLog_NetHeader0="Network"
+Count mtLog_NetIP=1
+mtLog_NetIP0="IP Address"
+Count mtLog_NetSubmask=1
+mtLog_NetSubmask0="Submask"
+Count mtLog_NetGateway=1
+mtLog_NetGateway0="Gateway"
+Count mtLog_NetDNS1=1
+mtLog_NetDNS10="DNS 1"
+Count mtLog_NetDNS2=1
+mtLog_NetDNS20="DNS 2"
+Count mtLog_NetDHCP=1
+mtLog_NetDHCP0="DHCP"
+Count mtLog_CustInfoHeader=1
+mtLog_CustInfoHeader0="Custom Information"
+Count mtCallStack_Address=1
+mtCallStack_Address0="Address"
+Count mtCallStack_Name=1
+mtCallStack_Name0="Module"
+Count mtCallStack_Unit=1
+mtCallStack_Unit0="Unit"
+Count mtCallStack_Class=1
+mtCallStack_Class0="Class"
+Count mtCallStack_Procedure=1
+mtCallStack_Procedure0="Procedure/Method"
+Count mtCallStack_Line=1
+mtCallStack_Line0="Line"
+Count mtCallStack_MainThread=1
+mtCallStack_MainThread0="Main"
+Count mtCallStack_ExceptionThread=1
+mtCallStack_ExceptionThread0="Exception Thread"
+Count mtCallStack_RunningThread=1
+mtCallStack_RunningThread0="Running Thread"
+Count mtCallStack_CallingThread=1
+mtCallStack_CallingThread0="Calling Thread"
+Count mtCallStack_ThreadID=1
+mtCallStack_ThreadID0="ID"
+Count mtCallStack_ThreadPriority=1
+mtCallStack_ThreadPriority0="Priority"
+Count mtCallStack_ThreadClass=1
+mtCallStack_ThreadClass0="Class"
+Count mtCallStack_LeakCaption=1
+mtCallStack_LeakCaption0="Memory Leak"
+Count mtCallStack_LeakData=1
+mtCallStack_LeakData0="Data"
+Count mtCallStack_LeakType=1
+mtCallStack_LeakType0="Type"
+Count mtCallStack_LeakSize=1
+mtCallStack_LeakSize0="Total size"
+Count mtCallStack_LeakCount=1
+mtCallStack_LeakCount0="Count"
+Count mtSendDialog_Caption=1
+mtSendDialog_Caption0="Send."
+Count mtSendDialog_Message=1
+mtSendDialog_Message0="Message"
+Count mtSendDialog_Resolving=1
+mtSendDialog_Resolving0="Resolving DNS..."
+Count mtSendDialog_Login=1
+mtSendDialog_Login0="Login..."
+Count mtSendDialog_Connecting=1
+mtSendDialog_Connecting0="Connecting with server..."
+Count mtSendDialog_Connected=1
+mtSendDialog_Connected0="Connected with server."
+Count mtSendDialog_Sending=1
+mtSendDialog_Sending0="Sending message..."
+Count mtSendDialog_Sent=1
+mtSendDialog_Sent0="Message sent."
+Count mtSendDialog_SelectProject=1
+mtSendDialog_SelectProject0="Select project..."
+Count mtSendDialog_Searching=1
+mtSendDialog_Searching0="Searching..."
+Count mtSendDialog_Modifying=1
+mtSendDialog_Modifying0="Modifying..."
+Count mtSendDialog_Disconnecting=1
+mtSendDialog_Disconnecting0="Disconnecting..."
+Count mtSendDialog_Disconnected=1
+mtSendDialog_Disconnected0="Disconnected."
+Count mtReproduceDialog_Caption=1
+mtReproduceDialog_Caption0="Request"
+Count mtReproduceDialog_Request=1
+mtReproduceDialog_Request0="Please describe the steps to reproduce the error:"
+Count mtReproduceDialog_OKButtonCaption=1
+mtReproduceDialog_OKButtonCaption0="%U0026OK"
+Count mtModules_Handle=1
+mtModules_Handle0="Handle"
+Count mtModules_Name=1
+mtModules_Name0="Name"
+Count mtModules_Description=1
+mtModules_Description0="Description"
+Count mtModules_Version=1
+mtModules_Version0="Version"
+Count mtModules_Size=1
+mtModules_Size0="Size"
+Count mtModules_LastModified=1
+mtModules_LastModified0="Modified"
+Count mtModules_Path=1
+mtModules_Path0="Path"
+Count mtProcesses_ID=1
+mtProcesses_ID0="ID"
+Count mtProcesses_Name=1
+mtProcesses_Name0="Name"
+Count mtProcesses_Description=1
+mtProcesses_Description0="Description"
+Count mtProcesses_Version=1
+mtProcesses_Version0="Version"
+Count mtProcesses_Memory=1
+mtProcesses_Memory0="Memory"
+Count mtProcesses_Priority=1
+mtProcesses_Priority0="Priority"
+Count mtProcesses_Threads=1
+mtProcesses_Threads0="Threads"
+Count mtProcesses_Path=1
+mtProcesses_Path0="Path"
+Count mtCPU_Registers=1
+mtCPU_Registers0="Registers"
+Count mtCPU_Stack=1
+mtCPU_Stack0="Stack"
+Count mtCPU_MemoryDump=1
+mtCPU_MemoryDump0="Memory Dump"
+Count mtSend_SuccessMsg=1
+mtSend_SuccessMsg0="The message was sent successfully."
+Count mtSend_FailureMsg=1
+mtSend_FailureMsg0="Sorry, sending the message didn't work."
+Count mtSend_BugClosedMsg=2
+mtSend_BugClosedMsg0="These BUG is just closed."
+mtSend_BugClosedMsg1="Contact the program support to obtain an update."
+Count mtSend_UnknownErrorMsg=1
+mtSend_UnknownErrorMsg0="Unknown error."
+Count mtSend_InvalidLoginMsg=1
+mtSend_InvalidLoginMsg0="Invalid login request."
+Count mtSend_InvalidSearchMsg=1
+mtSend_InvalidSearchMsg0="Invalid search request."
+Count mtSend_InvalidSelectionMsg=1
+mtSend_InvalidSelectionMsg0="Invalid selection request."
+Count mtSend_InvalidInsertMsg=1
+mtSend_InvalidInsertMsg0="Invalid insert request."
+Count mtSend_InvalidModifyMsg=1
+mtSend_InvalidModifyMsg0="Invalid modify request."
+Count mtFileCrackedMsg=2
+mtFileCrackedMsg0="This file is cracked."
+mtFileCrackedMsg1="The application will be closed."
+Count mtException_LeakMultiFree=1
+mtException_LeakMultiFree0="Multi Free memory leak."
+Count mtException_LeakMemoryOverrun=1
+mtException_LeakMemoryOverrun0="Memory Overrun leak."
+Count mtException_AntiFreeze=1
+mtException_AntiFreeze0="The application seems to be frozen."
+Count mtInvalidEmailMsg=1
+mtInvalidEmailMsg0="Invalid email."
+TextsCollection=
+EurekaLog Last Line -->

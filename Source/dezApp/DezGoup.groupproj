@@ -1,0 +1,36 @@
+﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup>
+			<ProjectGuid>{259DBC90-5D10-45B7-8A8E-7D5C09F0ECCB}</ProjectGuid>
+		</PropertyGroup>
+		<ItemGroup>
+			<Projects Include="Dez.dproj">
+				<Dependencies/>
+			</Projects>
+		</ItemGroup>
+		<ProjectExtensions>
+			<Borland.Personality>Default.Personality.12</Borland.Personality>
+			<Borland.ProjectType/>
+			<BorlandProject>
+				<Default.Personality/>
+			</BorlandProject>
+		</ProjectExtensions>
+		<Target Name="Dez">
+			<MSBuild Projects="Dez.dproj"/>
+		</Target>
+		<Target Name="Dez:Clean">
+			<MSBuild Targets="Clean" Projects="Dez.dproj"/>
+		</Target>
+		<Target Name="Dez:Make">
+			<MSBuild Targets="Make" Projects="Dez.dproj"/>
+		</Target>
+		<Target Name="Build">
+			<CallTarget Targets="Dez"/>
+		</Target>
+		<Target Name="Clean">
+			<CallTarget Targets="Dez:Clean"/>
+		</Target>
+		<Target Name="Make">
+			<CallTarget Targets="Dez:Make"/>
+		</Target>
+		<Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+	</Project>

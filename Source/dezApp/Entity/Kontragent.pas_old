@@ -1,0 +1,315 @@
+unit Kontragent;
+
+interface
+
+uses cmDBUnit, Vcl.Controls,
+     FIBQuery, pFIBCacheQueries, pFIBProps, FIBDataSet, pFIBDataSet,
+     System.SysUtils, System.Variants, DB;
+{ TKontragent }
+  type
+  TKontragent = class(TObject)
+  private
+   fSQLSelect: string;
+   fSQLDelete: string;
+   fSQLUpdate: string;
+   fDS: TpFIBDataSet;
+   //
+   fCode: Variant;
+   fName: Variant;
+   fFullName: Variant;
+   fINN: Variant;
+   fKPP: Variant;
+   fOgrn: Variant;
+   fPostAddr: Variant;
+   fUrAddr: Variant;
+   fPhone: Variant;
+   fEmail: Variant;
+   fKtype: Variant;
+   fDefSchet: Variant;
+   fCode1C: Variant;
+   fDirector: Variant;
+   fDopNum: Variant;
+   fDispId: Variant;
+   fUUId: Variant;
+   fIsActive: Variant;
+   fChief: Variant;
+  protected
+    function LoadKontList(isActive: Boolean = True): TpFIBDataSet;
+    procedure PrepareSqls;
+  public
+    constructor Create;
+    destructor Destroy; override;
+    //
+    function Save: Variant; overload;
+    function Save(ASQL: string; fieldIndexReturn: Integer = 0): Variant; overload;
+    procedure FindById(Id: Variant);
+    procedure Delete; overload;
+    procedure Delete(Id: Variant); overload;
+    function LoadKontragents(isActive: Boolean = True; FromCache: Boolean = True): TpFIBDataSet;
+    function ShowEditForm: Boolean;
+  published
+    property Code: Variant read fCode write fCode;
+    property Name: Variant read FName write FName;
+    property FullName: Variant read FFullName write FFullName;
+    property INN: Variant read FINN write FINN;
+    property KPP: Variant read FKPP write FKPP;
+    property Ogrn: Variant read FOgrn write FOgrn;
+    property PostAddr: Variant read FPostAddr write FPostAddr;
+    property UrAddr: Variant read FUrAddr write FUrAddr;
+    property Phone: Variant read FPhone write FPhone;
+    property Email: Variant read FEmail write FEmail;
+    property KType: Variant read FKType write FKType;
+    property DefSchet: Variant read FDefSchet write FDefSchet;
+    property Code1C: Variant read FCode1C write FCode1C;
+    property Director: Variant read FDirector write FDirector;
+    property DopNum: Variant read FDopNum write FDopNum;
+    property DispId: Variant read FDispId write FDispId;
+    property UUId: Variant read FUUId write FUUId;
+    property IsActive: Variant read FIsActive write FIsActive;
+    property Chief: Variant read FChief write FChief;
+  end;
+
+
+implementation
+
+{ TKontragent }
+
+uses RepositoryUnit, KontragentEditFrm, Vcl.Forms;
+
+constructor TKontragent.Create;
+begin
+  PrepareSqls;
+end;
+
+procedure TKontragent.Delete;
+begin
+  Delete(fCode);
+end;
+
+procedure TKontragent.Delete(Id: Variant);
+var
+  Q: TFIBQuery;
+begin
+  if VarIsType(Id,[varNull, varEmpty]) then
+    raise Exception.Create('Не передан код записи для удаления!');
+  Q:= GetQueryForUse(cmDb.WT, fSQLDelete);
+  Q.Options:= [qoStartTransaction, qoAutoCommit];
+  try
+    Q.ParamByName('CODE').AsVariant:= Id;
+    Q.ExecQuery;
+  finally
+    FreeQueryForUse(Q);
+  end;
+end;
+
+destructor TKontragent.Destroy;
+begin
+
+  inherited;
+end;
+
+procedure TKontragent.FindById(Id: Variant);
+var
+  Q: TFIBQuery;
+  ASQL: string;
+begin
+  ASQL:= 'SELECT * FROM KONTRAGENT WHERE CODE=:CODE';
+  Q:= GetQueryForUse(cmDb.RT, ASQL);
+  Q.Options:= [qoStartTransaction];
+  try
+    Q.ParamByName('CODE').AsVariant:= Id;
+    Q.ExecQuery;
+    if Q.RecordCount>0 then begin
+      fCode:= Q.FN('CODE').AsVariant;
+      fName:= Q.FN('NAME').AsVariant;
+      fFullName:= Q.FN('FULLNAME').AsVariant;
+      fINN:= Q.FN('INN').AsVariant;
+      fKPP:= Q.FN('KPP').AsVariant;
+      fOgrn:= Q.FN('OGRN').AsVariant;
+      fPostAddr:= Q.FN('POSTADDR').AsVariant;
+      fUrAddr:= Q.FN('URADDR').AsVariant;
+      fPhone:= Q.FN('PHONE').AsVariant;
+      fEmail:= Q.FN('EMAIL').AsVariant;
+      fKtype:= Q.FN('KTYPE').AsVariant;
+      fDefSchet:= Q.FN('DEFSCHET').AsVariant;
+      fCode1C:= Q.FN('CODE1C').AsVariant;
+      fDirector:= Q.FN('DIRECTOR').AsVariant;
+      fDopNum:= Q.FN('DOPNUM').AsVariant;
+      fDispId:= Q.FN('DISP_ID').AsVariant;
+      fUUId:= Q.FN('UUID').AsVariant;
+      fIsActive:= Q.FN('ISACTIVE').AsVariant;
+      fChief:= Q.FN('CHIEF').AsVariant;
+    end;
+  finally
+    FreeQueryForUse(Q);
+  end;
+end;
+
+function TKontragent.LoadKontList(isActive: Boolean): TpFIBDataSet;
+begin
+  with fDS do begin
+    Close;
+    SelectSQL.Text:= fSQLSelect;
+  end;
+  //
+  case isActive of
+    true:  begin
+             with fDS do begin
+               MainWhereClause:='ISACTIVE = 1';
+               OrderClause:='NAME';
+               Open;
+             end;
+             Result:= fDS;
+           end;
+    false: begin
+              with fDS do begin
+               MainWhereClause:='';
+               OrderClause:='NAME';
+               Open;
+             end;
+             Result:= fDS;
+           end;
+  end;
+end;
+
+function TKontragent.LoadKontragents(isActive: Boolean; FromCache: Boolean): TpFIBDataSet;
+begin
+  case isActive of
+    true: begin
+            if FromCache then begin //load active kontragent list from cache
+              if (Repository.KontrActiveCache.IsEmpty) then
+                   Repository.KontrActiveCache:= LoadKontList(isActive);
+                   Result:= Repository.KontrActiveCache;
+            end else begin          //load active kontragent list from db
+              //refresh cache
+              Repository.KontrActiveCache:= LoadKontList(isActive);
+              //return
+              Result:= Repository.KontrActiveCache;
+            end;
+          end;
+    false: begin
+             if FromCache then begin  //load all kontragent list from cache
+               if (Repository.KontrCache.IsEmpty) then
+                   Repository.KontrCache:= LoadKontList(isActive);
+                   Result:= Repository.KontrCache;
+             end else begin           //load all kontragent list from db
+                //refresh cache
+                Repository.KontrCache:= LoadKontList(isActive);
+                //return
+                Result:= Repository.KontrCache;
+             end;
+           end;
+  end;
+end;
+
+procedure TKontragent.PrepareSqls;
+begin
+  fDS:= TpFIBDataSet.Create(nil);
+  with fDS do begin
+    Transaction := cmDb.RT;
+    Database := cmDb.DB;
+    UpdateTransaction := cmDb.WT;
+  end;
+
+  fSQLSelect:='select * from KONTRAGENT';
+  fSQLDelete:= 'delete from KONTRAGENT where (CODE = :CODE)';
+  fSQLUpdate:= 'update or insert into KONTRAGENT (CODE, NAME, FULLNAME, INN, KPP, OGRN, POSTADDR, URADDR, PHONE, EMAIL, KTYPE, DEFSCHET,'+#10#13+
+               '                   CODE1C, DIRECTOR, DOPNUM, DISP_ID, UUID, ISACTIVE, CHIEF)'+#10#13+
+               ' values (:CODE, :NAME, :FULLNAME, :INN, :KPP, :OGRN, :POSTADDR, :URADDR, :PHONE, :EMAIL, :KTYPE, :DEFSCHET,'+#10#13+
+               '         :CODE1C, :DIRECTOR, :DOPNUM, :DISP_ID, :UUID, :ISACTIVE, :CHIEF)'+#10#13+
+               ' matching (CODE)'+#10#13+
+               ' returning CODE';
+end;
+
+function TKontragent.Save(ASQL: string; fieldIndexReturn: Integer): Variant;
+var
+  Q: TFIBQuery;
+  i: Integer;
+begin
+  Q:= GetQueryForUse(cmDb.WT, ASQL);
+  Q.Options:= [qoStartTransaction, qoAutoCommit];
+  try
+    if Q.ParamExist('CODE',i) then Q.ParamByName('CODE').AsVariant:= fCode;
+    if Q.ParamExist('NAME',i) then Q.ParamByName('NAME').AsVariant:= fName;
+    if Q.ParamExist('FULLNAME',i) then Q.ParamByName('FULLNAME').AsVariant:= fFullName;
+    if Q.ParamExist('INN',i) then Q.ParamByName('INN').AsVariant:= fINN;
+    if Q.ParamExist('KPP',i) then Q.ParamByName('KPP').AsVariant:= fKPP;
+    if Q.ParamExist('OGRN',i) then Q.ParamByName('OGRN').AsVariant:= fOgrn;
+    if Q.ParamExist('POSTADDR',i) then Q.ParamByName('POSTADDR').AsVariant:= fPostAddr;
+    if Q.ParamExist('URADDR',i) then Q.ParamByName('URADDR').AsVariant:= fUrAddr;
+    if Q.ParamExist('PHONE',i) then Q.ParamByName('PHONE').AsVariant:= fPhone;
+    if Q.ParamExist('EMAIL',i) then Q.ParamByName('EMAIL').AsVariant:= fEmail;
+    if Q.ParamExist('KTYPE',i) then Q.ParamByName('KTYPE').AsVariant:= fKtype;
+    if Q.ParamExist('DEFSCHET',i) then Q.ParamByName('DEFSCHET').AsVariant:= fDefSchet;
+    if Q.ParamExist('CODE1C',i) then Q.ParamByName('CODE1C').AsVariant:= fCode1C;
+    if Q.ParamExist('DIRECTOR',i) then Q.ParamByName('DIRECTOR').AsVariant:= fDirector;
+    if Q.ParamExist('DOPNUM',i) then Q.ParamByName('DOPNUM').AsVariant:= fDopNum;
+    if Q.ParamExist('DISP_ID',i) then Q.ParamByName('DISP_ID').AsVariant:= fDispId;
+    if Q.ParamExist('UUID',i) then Q.ParamByName('UUID').AsVariant:= fUUId;
+    if Q.ParamExist('ISACTIVE',i) then Q.ParamByName('ISACTIVE').AsVariant:= fIsActive;
+    if Q.ParamExist('CHIEF',i) then Q.ParamByName('CHIEF').AsVariant:= fIsActive;
+    try
+      Q.ExecQuery;
+      if fieldIndexReturn>-1 then
+      Result:= Q.Fields[fieldIndexReturn].AsVariant else
+      Result:= null;
+    except
+      on E: Exception do
+        raise Exception.Create(e.Message);
+    end;
+  finally
+    FreeQueryForUse(Q);
+  end;
+end;
+
+function TKontragent.ShowEditForm: Boolean;
+var
+  F: TKontragentEditForm;
+begin
+  F:= TKontragentEditForm.Create(Application.MainForm, fCode);
+  try
+    Result := F.ShowModal = mrOk;
+  finally
+    FreeAndNil(F);
+  end;
+end;
+
+function TKontragent.Save: Variant;
+var
+  Q: TFIBQuery;
+begin
+  Q:= GetQueryForUse(cmDb.WT, fSQLUpdate);
+  Q.Options:= [qoStartTransaction, qoAutoCommit];
+  try
+    Q.ParamByName('CODE').AsVariant:= fCode;
+    Q.ParamByName('NAME').AsVariant:= fName;
+    Q.ParamByName('FULLNAME').AsVariant:= fFullName;
+    Q.ParamByName('INN').AsVariant:= fINN;
+    Q.ParamByName('KPP').AsVariant:= fKPP;
+    Q.ParamByName('OGRN').AsVariant:= fOgrn;
+    Q.ParamByName('POSTADDR').AsVariant:= fPostAddr;
+    Q.ParamByName('URADDR').AsVariant:= fUrAddr;
+    Q.ParamByName('PHONE').AsVariant:= fPhone;
+    Q.ParamByName('EMAIL').AsVariant:= fEmail;
+    Q.ParamByName('KTYPE').AsVariant:= fKtype;
+    Q.ParamByName('DEFSCHET').AsVariant:= fDefSchet;
+    Q.ParamByName('CODE1C').AsVariant:= fCode1C;
+    Q.ParamByName('DIRECTOR').AsVariant:= fDirector;
+    Q.ParamByName('DOPNUM').AsVariant:= fDopNum;
+    Q.ParamByName('DISP_ID').AsVariant:= fDispId;
+    Q.ParamByName('UUID').AsVariant:= fUUId;
+    Q.ParamByName('ISACTIVE').AsVariant:= fIsActive;
+    Q.ParamByName('CHIEF').AsVariant:= fChief;
+    try
+      Q.ExecQuery;
+      Result:= Q.FN('CODE').AsVariant;
+    except
+      on E: Exception do
+        raise Exception.Create(e.Message);
+    end;
+  finally
+    FreeQueryForUse(Q);
+  end;
+end;
+
+end.

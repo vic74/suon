@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2010.11.08 23:41:41.796.dproj,C:\Projects\Rezident\Collector\Update.dproj=C:\Projects\DEZ\Source\Update.dproj</Transaction>
+    <Transaction>2010.11.08 23:42:01.312.pas,C:\Projects\Rezident\Collector\ProcFrm.pas=C:\Projects\DEZ\Source\ProcFrm.pas</Transaction>
+    <Transaction>2010.11.08 23:42:01.312.dfm,C:\Projects\Rezident\Collector\ProcFrm.dfm=C:\Projects\DEZ\Source\ProcFrm.dfm</Transaction>
+    <Transaction>2010.11.08 23:42:14.015.pas,C:\Projects\Rezident\Collector\ProcUtill.pas=C:\Projects\DEZ\Source\ProcUtill.pas</Transaction>
+  </Transactions>
+</BorlandProject>

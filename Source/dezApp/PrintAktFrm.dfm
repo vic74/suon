@@ -1,0 +1,276 @@
+object PrintAktForm: TPrintAktForm
+  Left = 0
+  Top = 0
+  BorderStyle = bsDialog
+  Caption = #1059#1082#1072#1078#1080#1090#1077' '#1072#1076#1088#1077#1089
+  ClientHeight = 134
+  ClientWidth = 291
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  FormStyle = fsStayOnTop
+  OldCreateOrder = False
+  Position = poMainFormCenter
+  OnCreate = FormCreate
+  PixelsPerInch = 96
+  TextHeight = 13
+  object lc1: TdxLayoutControl
+    Left = 0
+    Top = 0
+    Width = 291
+    Height = 134
+    Align = alClient
+    TabOrder = 0
+    LayoutLookAndFeel = laf1
+    object cbb_house: TcxLookupComboBox
+      Left = 10
+      Top = 37
+      Properties.DropDownSizeable = True
+      Properties.ImmediatePost = True
+      Properties.KeyFieldNames = 'CODE'
+      Properties.ListColumns = <
+        item
+          MinWidth = 0
+          Width = 0
+          FieldName = 'CODE'
+        end
+        item
+          FieldName = 'NOMER'
+        end>
+      Properties.ListFieldIndex = 1
+      Properties.ListOptions.ShowHeader = False
+      Properties.ListSource = src_house
+      Style.HotTrack = False
+      TabOrder = 1
+      Width = 145
+    end
+    object cbb_street: TcxLookupComboBox
+      Left = 10
+      Top = 10
+      Properties.DropDownSizeable = True
+      Properties.ImmediatePost = True
+      Properties.KeyFieldNames = 'CODE'
+      Properties.ListColumns = <
+        item
+          MinWidth = 0
+          Width = 0
+          FieldName = 'CODE'
+        end
+        item
+          FieldName = 'NAME'
+        end>
+      Properties.ListFieldIndex = 1
+      Properties.ListOptions.ShowHeader = False
+      Properties.ListSource = src_street
+      Properties.OnEditValueChanged = cbb_streetPropertiesEditValueChanged
+      Style.HotTrack = False
+      TabOrder = 0
+      Width = 145
+    end
+    object btn_ok: TcxButton
+      Left = 10
+      Top = 91
+      Width = 75
+      Height = 25
+      Caption = #1055#1077#1095#1072#1090#1100
+      OptionsImage.Glyph.Data = {
+        36040000424D3604000000000000360000002800000010000000100000000100
+        2000000000000004000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000001000100000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        000000000000000000000000000008210A2C1F682383060C070C000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        00000000000000000000051F072D2E9934DC78ED81FF318635A4060C070C0000
+        0000000000000000000000000000000000000000000000000000000000000000
+        000000000000021B042D229029DC5EF76CFF67FE75FF5FF16BFF208225A4030B
+        040C000000000000000000000000000000000000000000000000000000000000
+        00000117032D1A8922DB47E256FF6AEE77FF79F385FF58F466FF4DE95AFF187B
+        1EA40209030C0000000000000000000000000000000000000000000000000717
+        092D22802ADB3DCD4BFF7BE185FF87E690FF8AEA93FF71E87CFF4AE558FF42DA
+        4FFF106415A40108010C00000000000000000000000000000000021003224D95
+        54DB52C35CFF92DC99FF8FDD97FF6AD174FD48A850DA78DE82FF68DD73FF3BD6
+        49FF34C541FF08500EA40006010C000000000000000000000000011102246DAB
+        73E1ABDAB0FF9FD8A5FF6FC877FD0A4F1074030F0414258C2FBD6DD377FF5ED1
+        69FF2AC639FF26B232FF063F0BA30004000C000000000000000000000000041C
+        062C49A551E18BCC92FD064B0C740002000300000000010C02111E8528BD66C9
+        6FFF53C55EFF19B427FF17A424FF06390AA20004010D00000000000000000000
+        0000021C052A073C0B6000020003000000000000000000000000000B01111A79
+        23BD64BB6CFF4DB657FF099F18FF0A9316FF274F2BA20104010C000000000000
+        000000000000000000000000000000000000000000000000000000000000000A
+        01111C7825BD68AF6EFF4FA257FF078013FF22832AFF0119035E000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000A01111D7925BD6CAB72FF519B58FF07480DA800030009000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        000000000000000A0111227629BC3C7041A70004010900000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000040007000200040000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000}
+      TabOrder = 3
+      OnClick = btn_okClick
+    end
+    object btn_cancel: TcxButton
+      Left = 166
+      Top = 91
+      Width = 75
+      Height = 25
+      Caption = #1054#1090#1084#1077#1085#1080#1090#1100
+      OptionsImage.Glyph.Data = {
+        36040000424D3604000000000000360000002800000010000000100000000100
+        2000000000000004000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        00000000000000000000000000000000000000031B300004223C0001070C0000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000001080F00095A9F000F8DF9000F90FF000F90FF000F90FF000C
+        73CC00031E360000000000000000000000000000000000000000000000000000
+        000000032039011089ED081D9FFF0522A9FF0A2FB7FF0B32B8FF082CB5FF0825
+        A7FF051898FD0008487E00000000000000000000000000000000000000000001
+        0A12010F87EB0A20A5FF010D9DFF525ABCFF0A16A0FF0936C5FF1F29A9FF1A26
+        B4FF020C8FFF041698FF00042A4B000000000000000000000000000000000008
+        4C8704179BFF0A2FB8FF7186D2FFFFFFFFFFCFD4EEFF2731ACFFE3E8F8FFDAE1
+        F6FF2048C8FF051C9FFF000D7AD800000000000000000000000000000000000D
+        7CDB0824ADFF0430BFFF3452C2FFF3F5FBFFFFFFFFFFFDFDFEFFFFFFFFFFCBD3
+        F0FF143FC6FF0525ACFF000F90FF0002182A000000000000000000000203000F
+        8EFC082BB7FF0938C7FF042FC0FF414AB6FFFCFDFEFFFFFFFFFFF9FAFDFF1620
+        A5FF0834C2FF0724A6FF000F90FF00052F54000000000000000000000000000E
+        8BF6092AB4FF0639CDFF1F29A9FFE1E3F6FFFFFFFFFFF9FAFEFFFFFFFFFFC1C4
+        EBFF0A16A0FF0521A5FF000F90FF00042A4B000000000000000000000000000B
+        6EC30921A5FF0F44D4FF5679DCFFFDFDFEFFD2D9F3FF4E69CFFFEBEEF9FFFAFB
+        FEFF4668D4FF0925AAFF000F90FF0002111E0000000000000000000000000006
+        3A66021294FF2045C5FF154CD8FF4C72DDFF0F42D0FF0035CBFF254DCBFF5071
+        D6FF1740C4FF0D23A4FF000B67B7000000000000000000000000000000000000
+        0306000C72C9051698FF2B4BC5FF2657D9FF174ED8FF134BD5FF1D4FD3FF2E56
+        CCFF162CAAFF01108EF70002182A000000000000000000000000000000000000
+        000000020F1B000C72C9021294FF1428A6FF2844BBFF2D4BC0FF223BB4FF091B
+        9CFF010F88EE0004274500000000000000000000000000000000000000000000
+        0000000000000000030600063D6C000C73CC000F90FF000F90FF000E82E70008
+        519000010E180000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000}
+      TabOrder = 4
+      OnClick = btn_cancelClick
+    end
+    object cbb_stype: TcxComboBox
+      Left = 10
+      Top = 64
+      Properties.DropDownListStyle = lsFixedList
+      Properties.ImmediatePost = True
+      Properties.Items.Strings = (
+        #1089#1090#1088#1086#1077#1085#1080#1103
+        #1101#1083#1077#1082#1090#1088#1080#1095#1077#1089#1090#1074#1086
+        #1083#1080#1092#1090#1099
+        #1074#1076#1075#1086)
+      Style.HotTrack = False
+      TabOrder = 2
+      Text = #1089#1090#1088#1086#1077#1085#1080#1103
+      Width = 121
+    end
+    object grp1: TdxLayoutGroup
+      AlignHorz = ahClient
+      AlignVert = avTop
+      ButtonOptions.Buttons = <>
+      Hidden = True
+      ShowBorder = False
+      Index = -1
+    end
+    object itm_house: TdxLayoutItem
+      Parent = grp1
+      Control = cbb_street
+      ControlOptions.ShowBorder = False
+      Index = 0
+    end
+    object itm_street: TdxLayoutItem
+      Parent = grp1
+      Control = cbb_house
+      ControlOptions.ShowBorder = False
+      Index = 1
+    end
+    object grp_btn: TdxLayoutGroup
+      CaptionOptions.Text = 'Hidden Group'
+      Parent = grp1
+      ButtonOptions.Buttons = <>
+      Hidden = True
+      LayoutDirection = ldHorizontal
+      ShowBorder = False
+      Index = 3
+    end
+    object itm_Ok: TdxLayoutItem
+      AlignHorz = ahLeft
+      CaptionOptions.Text = 'cxButton1'
+      CaptionOptions.Visible = False
+      Parent = grp_btn
+      SizeOptions.AssignedValues = [sovSizableHorz]
+      SizeOptions.SizableHorz = True
+      SizeOptions.Width = 115
+      Control = btn_ok
+      ControlOptions.ShowBorder = False
+      Index = 0
+    end
+    object itm_cancel: TdxLayoutItem
+      AlignHorz = ahRight
+      CaptionOptions.Text = 'cxButton1'
+      CaptionOptions.Visible = False
+      Parent = grp_btn
+      SizeOptions.AssignedValues = [sovSizableHorz]
+      SizeOptions.SizableHorz = True
+      SizeOptions.Width = 115
+      Control = btn_cancel
+      ControlOptions.ShowBorder = False
+      Index = 1
+    end
+    object itm_stype: TdxLayoutItem
+      CaptionOptions.Text = 'cxComboBox1'
+      CaptionOptions.Visible = False
+      Parent = grp1
+      Control = cbb_stype
+      ControlOptions.ShowBorder = False
+      Index = 2
+    end
+  end
+  object lkf1: TdxLayoutLookAndFeelList
+    Left = 8
+    Top = 136
+    object laf1: TdxLayoutCxLookAndFeel
+    end
+  end
+  object ds_street: TpFIBDataSet
+    SelectSQL.Strings = (
+      'select CODE, NAME from STREET'
+      'order by name')
+    Transaction = cmDb.RT
+    Database = cmDb.DB
+    UpdateTransaction = cmDb.WT
+    Left = 104
+    Top = 72
+  end
+  object ds_house: TpFIBDataSet
+    SelectSQL.Strings = (
+      'select CODE, NOMER'
+      'from HOUSE'
+      'where street = :code')
+    Transaction = cmDb.RT
+    Database = cmDb.DB
+    UpdateTransaction = cmDb.WT
+    Left = 144
+    Top = 72
+    dcForceOpen = True
+  end
+  object src_street: TDataSource
+    DataSet = ds_street
+    Left = 80
+    Top = 72
+  end
+  object src_house: TDataSource
+    DataSet = ds_house
+    Left = 173
+    Top = 72
+  end
+end

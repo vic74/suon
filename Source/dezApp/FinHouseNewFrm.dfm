@@ -1,0 +1,278 @@
+object FinHouseNewForm: TFinHouseNewForm
+  Left = 0
+  Top = 0
+  Caption = #1044#1086#1073#1072#1074#1083#1077#1085#1080#1077' '#1076#1086#1084#1072' '#1074' '#1092#1080#1085'. '#1087#1083#1072#1085
+  ClientHeight = 354
+  ClientWidth = 665
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poMainFormCenter
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object lc1: TdxLayoutControl
+    Left = 0
+    Top = 0
+    Width = 665
+    Height = 354
+    Align = alClient
+    TabOrder = 0
+    object grd1: TcxGrid
+      Left = 10
+      Top = 10
+      Width = 250
+      Height = 200
+      TabOrder = 0
+      object v1: TcxGridDBTableView
+        Navigator.Buttons.CustomButtons = <>
+        DataController.DataSource = src_ds1
+        DataController.Summary.DefaultGroupSummaryItems = <>
+        DataController.Summary.FooterSummaryItems = <
+          item
+            Kind = skSum
+            Column = clv1SUM4
+          end
+          item
+            Kind = skSum
+            Column = clv1SUM3
+          end
+          item
+            Kind = skSum
+            Column = clv1SUM2
+          end
+          item
+            Kind = skSum
+            Column = clv1SUM1
+          end
+          item
+            Kind = skSum
+            Column = clv1SUMY
+          end
+          item
+            Kind = skSum
+            Column = clv1SUMOST
+          end
+          item
+            Kind = skCount
+            Column = clv1SNAME
+          end>
+        DataController.Summary.SummaryGroups = <>
+        FilterRow.Visible = True
+        OptionsData.Deleting = False
+        OptionsData.DeletingConfirmation = False
+        OptionsData.Editing = False
+        OptionsData.Inserting = False
+        OptionsSelection.CellSelect = False
+        OptionsSelection.HideFocusRectOnExit = False
+        OptionsSelection.UnselectFocusedRecordOnExit = False
+        OptionsView.Footer = True
+        OptionsView.GroupByBox = False
+        OptionsView.HeaderAutoHeight = True
+        object clv1CODE: TcxGridDBColumn
+          DataBinding.FieldName = 'CODE'
+          Visible = False
+        end
+        object clv1SNAME: TcxGridDBColumn
+          Caption = #1059#1083#1080#1094#1072
+          DataBinding.FieldName = 'SNAME'
+          Width = 183
+        end
+        object clv1NOMER: TcxGridDBColumn
+          Caption = #1044#1086#1084
+          DataBinding.FieldName = 'NOMER'
+          Width = 34
+        end
+        object clv1SUMOST: TcxGridDBColumn
+          Caption = #1054#1089#1090#1072#1090#1086#1082' '#1085#1072' '#1085#1072#1095#1072#1083#1086' '#1075#1086#1076#1072
+          DataBinding.FieldName = 'SUMOST'
+          Width = 75
+        end
+        object clv1SUMY: TcxGridDBColumn
+          Caption = #1055#1083#1072#1085' '#1085#1072' '#1075#1086#1076
+          DataBinding.FieldName = 'SUMY'
+          Width = 77
+        end
+        object clv1SUM1: TcxGridDBColumn
+          Caption = #1055#1083#1072#1085' '#1085#1072' 1 '#1082#1074#1072#1088#1090#1072#1083
+          DataBinding.FieldName = 'SUM1'
+        end
+        object clv1SUM2: TcxGridDBColumn
+          Caption = #1055#1083#1072#1085' '#1085#1072' 2 '#1082#1074#1072#1088#1090#1072#1083
+          DataBinding.FieldName = 'SUM2'
+        end
+        object clv1SUM3: TcxGridDBColumn
+          Caption = #1055#1083#1072#1085' '#1085#1072' 3 '#1082#1074#1072#1088#1090#1072#1083
+          DataBinding.FieldName = 'SUM3'
+        end
+        object clv1SUM4: TcxGridDBColumn
+          Caption = #1055#1083#1072#1085' '#1085#1072' 4 '#1082#1074#1072#1088#1090#1072#1083
+          DataBinding.FieldName = 'SUM4'
+          Width = 68
+        end
+      end
+      object l1: TcxGridLevel
+        GridView = v1
+      end
+    end
+    object btn_Cancel: TcxButton
+      Left = 545
+      Top = 319
+      Width = 75
+      Height = 25
+      Caption = #1054#1090#1084#1077#1085#1080#1090#1100
+      ModalResult = 2
+      OptionsImage.Glyph.Data = {
+        36040000424D3604000000000000360000002800000010000000100000000100
+        2000000000000004000000000000000000000000000000000000000000000000
+        0000010101020101010401010106010101090101010B0101010C0101010C0101
+        010B010101090101010701010104010101020000000000000000000000010101
+        0108010101110101011B010101240101012C010101330101053D0101053E0101
+        01350101012E010101260101011C010101130101010900000001000000000000
+        0000000000000000000101010C11060667830909A7D90A0AC3FE0A0AC3FE0909
+        A7D90606678301010C1101010102000000000000000000000000000000000000
+        0000000000000303262E0A0AB0E10C0CD1FF0D0DE4FF0D0DEEFF0D0DEEFF0D0D
+        E4FF0C0CD1FF0A0AB0E10303262E000000000000000000000000000000000000
+        0000020213170B0BB9E51414EDFF1616F5FF2929EDFF1616FBFF1616FBFF2828
+        EDFF1616F5FF1414EDFF0B0BB9E5020213170000000000000000000000000000
+        0000070779971C1CEFFF1F1FF3FFA2A2EFFFE2E2F8FF3838ECFF3838ECFFE2E2
+        F7FFA1A1EEFF1E1EF3FF1C1CEFFF070779970000000000000000000000000101
+        06071616CEF13B3BF5FF4C4CEDFFE4E4F9FFFFFFFFFFE3E3F8FFE2E2F8FFFFFF
+        FFFFE2E2F8FF3636EAFF2929F5FF1515CEF10101060700000000000000000202
+        242E3838E1FF6666F5FF6666F5FF6868EEFFE4E4FAFFFFFFFFFFFFFFFFFFE2E2
+        F9FF4545EBFF3232F2FF3F3FF2FF3A3AE1FF0202242E00000000000000000202
+        29354343DFFF7B7BF4FF7B7BF4FF7272F0FFE3E3FAFFFFFFFFFFFFFFFFFFE3E3
+        FAFF5C5CEDFF6363F2FF7777F3FF4545DFFF0202293500000000000000000101
+        0F142828D2FD8C8CF2FF7B7BF1FFE3E3FBFFFFFFFFFFE4E4FBFFE4E4FBFFFFFF
+        FFFFE4E4FBFF7B7BEFFF8C8CF2FF2B2BD2FD01010F1400000000000000000000
+        0000090999C17474E9FF9393F1FFB8B8F6FFE4E4FBFF8D8DF1FF8E8EF1FFE4E4
+        FBFFB9B9F6FF9393F1FF7575E9FF0A0A99C10000000000000000000000000000
+        000003032F3F2929D6FD9191EEFF9696F0FF9292F0FFB2B2F4FFB2B2F4FF9292
+        F0FF9696F0FF9191EEFF2929D6FD03032F3F0000000000000000000000000000
+        000000000000050557723636DCFE9797F1FFA2A2F2FFA2A2F2FFA2A2F2FFA2A2
+        F2FF9898F1FF3838DCFE05055772000000000000000000000000000000000000
+        000000000000000000000404394D1515B1DA4D4DE1FF6D6DEDFF6F6FEDFF5252
+        E2FF1616B1DA0404394D00000000000000000000000000000000000000000000
+        0000000000000000000000000000000001010303263405054660050546600303
+        2634000001010000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000}
+      TabOrder = 2
+    end
+    object btn_Ok: TcxButton
+      Left = 429
+      Top = 319
+      Width = 75
+      Height = 25
+      Caption = #1044#1086#1073#1072#1074#1080#1090#1100' '#1076#1086#1084
+      OptionsImage.Glyph.Data = {
+        36040000424D3604000000000000360000002800000010000000100000000100
+        2000000000000004000000000000000000000000000000000000000000000000
+        0000010101020101010401010106010101090101010B0101010C0101010C0101
+        010B010101090101010701010104010101020000000000000000000000010101
+        0108010101110101011B010101240101012C010101340102013B0101013A0101
+        01350101012E010101250101011C010101130101010900000001000000000000
+        0000000000000000000101010103010804141752329252AE7BF4062815550101
+        0106010101040101010301010102000000000000000000000000000000000000
+        000000000000000000000725144345A570E47BE4A9FF7EE7ACFF44B375F10215
+        0A29000000000000000000000000000000000000000000000000000000000000
+        0000000000000A3B206445C27DFB55D990FF50D78CFF4FD88BFF53D88EFF1A8E
+        4ED70108040E0000000000000000000000000000000000000000000000000000
+        00000430185222B965FD1EC568FF10C15FFF0CC15CFF0CC15CFF13C261FF25C5
+        6CFF096B35AC0101010100000000000000000000000000000000000000000109
+        050F0A9E4CED0BAD54FB077538B4054F2780065D2D93099C4CE80BB757FF0BB8
+        58FF0CB356FF0444206D0000000000000000000000000000000000000000043A
+        1C5A098F45D9021C0E2C0000000000000000000000000106030A06582A880AAC
+        52FD0AAF54FF0AA550F80220103100000000000000000000000000000000032C
+        15420213091C0000000000000000000000000000000000000000000000000331
+        184A099F4CEF0AA650FF088B43D2010503070000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        00000320102E099B4AE8099F4CFF065A2B820000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        000000000000021D0E27099A4AE80A9D4CF7021A0D2200000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        000000000000000000000325122F099A4AEF077639A600000000000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        000000000000000000000000000004371B450BAE54F802170C1C000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        000000000000000000000000000000000000065F2E7406592B68000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        00000000000000000000000000000000000001020102032E1636000000000000
+        0000000000000000000000000000000000000000000000000000000000000000
+        0000000000000000000000000000000000000000000000000000}
+      TabOrder = 1
+      OnClick = btn_OkClick
+    end
+    object gr1: TdxLayoutGroup
+      AlignHorz = ahClient
+      AlignVert = avClient
+      ButtonOptions.Buttons = <>
+      Hidden = True
+      ShowBorder = False
+      Index = -1
+    end
+    object itmlc1Item1: TdxLayoutItem
+      AlignHorz = ahClient
+      AlignVert = avClient
+      CaptionOptions.Text = 'cxGrid1'
+      CaptionOptions.Visible = False
+      Parent = gr1
+      Control = grd1
+      ControlOptions.ShowBorder = False
+      Index = 0
+    end
+    object grlc1Group1: TdxLayoutGroup
+      CaptionOptions.Text = 'Hidden Group'
+      Parent = gr1
+      ButtonOptions.Buttons = <>
+      Hidden = True
+      LayoutDirection = ldHorizontal
+      ShowBorder = False
+      Index = 1
+    end
+    object itmlc1Item12: TdxLayoutItem
+      AlignHorz = ahRight
+      CaptionOptions.Text = 'cxButton1'
+      CaptionOptions.Visible = False
+      Parent = grlc1Group1
+      SizeOptions.Width = 110
+      Control = btn_Ok
+      ControlOptions.ShowBorder = False
+      Index = 0
+    end
+    object itmlc1Item11: TdxLayoutItem
+      AlignHorz = ahRight
+      CaptionOptions.Text = 'cxButton1'
+      CaptionOptions.Visible = False
+      Parent = grlc1Group1
+      SizeOptions.AssignedValues = [sovSizableHorz]
+      SizeOptions.SizableHorz = True
+      SizeOptions.Width = 110
+      Control = btn_Cancel
+      ControlOptions.ShowBorder = False
+      Index = 1
+    end
+  end
+  object ds1: TpFIBDataSet
+    SelectSQL.Strings = (
+      'select h.code, h.nomer, s.name SNAME'
+      'from house h'
+      'left outer join street s on s.code=h.street'
+      'where h.code not in (select house from trfinplan where Y=:Y)'
+      'order by s.name, h.nomer')
+    Transaction = cmDb.RT
+    Database = cmDb.DB
+    UpdateTransaction = cmDb.WT
+    Left = 272
+    Top = 64
+  end
+  object src_ds1: TDataSource
+    DataSet = ds1
+    Left = 304
+    Top = 64
+  end
+end

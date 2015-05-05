@@ -1,0 +1,24 @@
+:TITLE Система автоматизации учета ООО ДЕЗ
+:BASE TZ.hlp
+1 Описание структур данных
+2 Описание структур данных=TableStruct@TZ.hlp
+2 Формат файлов выгрузки Инвестбанка=InvestRKC@TZ.hlp
+2 Структура таблиц БД FireBurd
+3 Структура таблиц БД FireBurd=FireBurd@TZ.hlp
+3 Справочник улиц (Street)=TblStreet@TZ.hlp
+3 Справочник домов (House)=tblHouse@TZ.hlp
+3 Справочник адресов (Addr)=tblAddr@TZ.hlp
+3 Справочник типов жилья (OwnerShip)=tblOwnerShip@TZ.hlp
+3 Справочник видов собственности жилья (Habit_Type)=tblHabit_Type@TZ.hlp
+3 Справочник видов услуг (SrvList)=tblSrvList@TZ.hlp
+3 Лицевые счета (AccCode)=tblAccCode@TZ.hlp
+3 Справочник домоуправлений (DU)=tblDU@TZ.hlp
+3 Расчеты по лицевым счетам (AccCodePrv)=tblAccCodePrv@TZ.hlp
+3 Сальдо на начало месяца по счетам (AccCodeSaldo)=tblAccCodeSaldo@TZ.hlp
+3 Шаблоны бюджетов (BudgetShablon)=NachShb@TZ.hlp
+3 Спецификация шаблона бюджетов (BudgetLine)=BudgetLine@TZ.hlp
+2 Сохраненные процедуры
+3 Сохраненные процедуры=StoredProc@TZ.hlp
+3 CalcHouseRecvizits=CalcHouseRecvizits@TZ.hlp
+3 CalcPeriodSaldo=CalcPeriodSaldo@TZ.hlp
+3 GetSaldo=GetSaldo@TZ.hlp

@@ -1,0 +1,12 @@
+﻿[Main]
+Version=2
+
+[cbb_base: TcxPropertiesStoreComponent]
+=
+ItemIndex=3
+
+[cbb_user: TcxPropertiesStoreComponent]
+=
+EditValue=2
+Properties.DropDownWidth=0
+

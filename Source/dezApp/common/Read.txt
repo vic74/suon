@@ -1,0 +1,124 @@
+﻿unit MainFrm;
+ Создание форм
+_ Все кнопки на Ribbon, с функцией создания форм, имеют событие btn_AccFormClick
+________________________________________________________________________________
+CREATE INDEX ACCCODE_IDX1
+ON ACCCODE (MASTER);
+
+CREATE INDEX ACCCODEPRV_IDX3
+ON ACCCODEPRV (ACCCODE);
+
+CREATE INDEX ACCCODESALDO_IDX2
+ON ACCCODESALDO (SALDO);
+CREATE INDEX ACCCODESALDO_IDX3
+ON ACCCODESALDO (ACCCODE);
+________________________________________________________________________________
+SET TERM ^ ;
+
+CREATE OR ALTER procedure GETSALDO (
+    D1 date,
+    D2 date,
+    ACCCODE varchar(32))
+returns (
+    OP_DATE date,
+    SALDO numeric(18,2))
+as
+BEGIN
+  FOR
+    select min (op_date) op_date from acccodesaldo
+    where op_date between :d1 and :d2  and acccode=:acccode
+    INTO :OP_DATE
+  DO
+  BEGIN
+   --остаток на начало
+   select sum(saldo) from acccodesaldo
+        where acccode=:ACCCODE and op_date=:OP_DATE
+        into :saldo;
+    SUSPEND;
+  END
+END
+^
+
+SET TERM ; ^
+________________________________________________________________________________
+SET TERM ^ ;
+
+create or alter procedure GETPRVTYPENAME (
+    PRV_TYPE smallint)
+returns (
+    PRV_NAME varchar(32))
+as
+begin
+ if (Prv_Type=0) then Prv_Name='CHARGE';
+ else if (Prv_Type=1) then Prv_Name='INCOMING';
+ else if (Prv_Type=2) then Prv_Name='MAKET';
+ else if (Prv_Type=3) then Prv_Name='REPAYMENT';
+ else if (Prv_Type=4) then Prv_Name='SUBSIDY';
+ else Prv_Name='UNKNOWN';
+end^
+
+SET TERM ; ^
+________________________________________________________________________________
+SET TERM ^ ;
+
+create or alter procedure GETPERIODSALDO (
+    D1 date,
+    D2 date,
+    ACCODE varchar(32))
+returns (
+    REC_TYPE smallint,
+    DATE_VAL date,
+    PRV_NAME varchar(32),
+    SALDO numeric(18,2),
+    ACCCODE type of column ACCCODEPRV.ACCCODE,
+    SRV type of column ACCCODEPRV.SRV,
+    PAY_DATE type of column ACCCODEPRV.PAY_DATE,
+    ACC_DATE type of column ACCCODEPRV.ACC_DATE,
+    HOUSE type of column ACCCODEPRV.HOUSE,
+    DU type of column ACCCODEPRV.DU,
+    PSUM numeric(18,2),
+    RSUM numeric(18,2))
+as
+declare variable SUMMA type of column ACCCODEPRV.SUMMA;
+BEGIN
+    select :accode ACCCODE,'' srv,'SALDO' Prv_Name,
+    OP_DATE, SALDO from getsaldo(:d1,:d2,:accode)
+    INTO :acccode,:srv,:Prv_Name,:DATE_VAL,:SALDO;
+    house=0;du=0;PSum=0; RSum=0;
+  suspend;
+
+  BEGIN
+   for SELECT ap.REC_TYPE,ap.ACCCODE,
+           ap.SRV,
+           ap.DATE_VAL,ap.PAY_DATE,
+           ap.ACC_DATE,ap.SUMMA,ap.HOUSE,
+           ap.DU
+    FROM ACCCODEPRV ap
+    where ap.acccode=:AcCode and ap.date_val between :d1 and :d2
+    into :rec_type,:acccode,:srv,:date_val,:pay_date,:acc_date,:summa,:house,:du do
+    begin
+     execute procedure GetPrvTypeName(:rec_type) returning_values(:Prv_Name);
+         PSum=0; RSum=0;
+         if (rec_type=1) then RSum=-Summa;
+                         else PSum=Summa;
+         Saldo=Saldo+PSum-RSum;
+     SUSPEND;
+    end
+  END
+END^
+
+SET TERM ; ^
+
+GRANT EXECUTE ON PROCEDURE GETSALDO TO PROCEDURE GETPERIODSALDO;
+
+GRANT SELECT ON ACCCODEPRV TO PROCEDURE GETPERIODSALDO;
+
+GRANT EXECUTE ON PROCEDURE GETPRVTYPENAME TO PROCEDURE GETPERIODSALDO;
+
+GRANT EXECUTE ON PROCEDURE GETPERIODSALDO TO SYSDBA;
+________________________________________________________________________________
+17.10.2010
+CREATE INDEX ACCCODEPRV_IDX4
+ON ACCCODEPRV (SRV);
+________________________________________________________________________________
+
